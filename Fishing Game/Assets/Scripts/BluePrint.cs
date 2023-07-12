@@ -23,8 +23,7 @@ public class BluePrint : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, 50000.0f, layerMask))
         {
-            Vector3 snapPoint = new Vector3(Mathf.Round(hit.point.x), Mathf.Round(hit.point.y), Mathf.Round(hit.point.z));
-            transform.position = snapPoint;
+            transform.position = hit.point;
 
         }
 
@@ -34,9 +33,9 @@ public class BluePrint : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetKey(KeyCode.R))
         {
-            gameObject.transform.rotation *= Quaternion.Euler(0, 90, 0);
+            gameObject.transform.rotation *= Quaternion.Euler(0, 0, 1);
         }
     }
 }
