@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public List<GameObject> Spawns;
+    public List<GameObject> Spawnpoints;
 
 
-    public List<GameObject> plots;
+    public List<GameObject> Spawning;
 
     void Start()
     {
-        foreach (GameObject p in Spawns)
+        foreach (GameObject p in Spawnpoints)
         {
-            Instantiate(plots[Random.Range(0, plots.Count)],p.transform);
+            Instantiate(Spawning[Random.Range(0, Spawning.Count)],p.transform);
         }
     }
 

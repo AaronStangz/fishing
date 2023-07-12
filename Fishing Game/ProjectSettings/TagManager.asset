@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Tool
   - InvCamera
+  - Harpoonable
+  - HarpoonableObject
+  - HarpoonableFish
+  - Buildable
   layers:
   - Default
   - TransparentFX
@@ -13,10 +17,10 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - tool
+  - Buildable
+  - Snap
+  - CraftingBeach
   - 
   - 
   - 
