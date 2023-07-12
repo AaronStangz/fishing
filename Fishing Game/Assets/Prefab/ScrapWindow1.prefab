@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3343065669161662699}
   - component: {fileID: 5266874643910028355}
+  - component: {fileID: 1378973217140274371}
   m_Layer: 7
   m_Name: ScrapWindow1
   m_TagString: Untagged
@@ -46,6 +47,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainCollider: {fileID: 2855799197573101794}
+--- !u!65 &1378973217140274371
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791921798098192273}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0020242, y: 3.8188167, z: 0.19807148}
+  m_Center: {x: 0.000029325485, y: -0.043217897, z: 1.0000166}
 --- !u!1001 &4794523731235853199
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -131,7 +145,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 34945fcfd9c2a5844810593808c22ead,
         type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34945fcfd9c2a5844810593808c22ead, type: 3}

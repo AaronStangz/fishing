@@ -6,16 +6,12 @@ public class BuildMechanic : MonoBehaviour
 {
     private const float CheckSpotFilledMultipler = 0.3f;
     private const float CheckSpotNearbyBuildings = 1.1f;
-    [Header("Prefab")]
-    public GameObject DoorPrefab;
-    public GameObject WindowPrefab;
+    public GameObject BlockPrefab;
     public GameObject WallPrefab;
     public GameObject FloorPrefab;
     public GameObject PillerPrefab;
 
-    [Header("GostPrefab")]
-    public GameObject GhostDoorPrefab;
-    public GameObject GhostWindowPrefab;
+    public GameObject GhostBlockPrefab;
     public GameObject GhostWallPrefab;
     public GameObject GhostFloorPrefab;
     public GameObject GhostPillerPrefab;
@@ -26,17 +22,15 @@ public class BuildMechanic : MonoBehaviour
     private GameObject SpawnedGhost;
     int rotation = 0;
 
-    [Header("Face Transform")]
     public Transform FacingObject;
 
-    [Header("Ghost MAterial")]
     public Material GhostValid;
     public Material GhostInvalid;
 
     void Start()
     {
-        targetPrefab = FloorPrefab;
-        targetGhostPrefab = GhostFloorPrefab;
+        targetPrefab = BlockPrefab;
+        targetGhostPrefab = GhostBlockPrefab;
     }
 
     void Update()
@@ -49,10 +43,10 @@ public class BuildMechanic : MonoBehaviour
     private void NewMethod()
     {
         RaycastHit hit;
-        int buildableLayer = 6; // Building layer
+        int buildableLayer = 7; // Building layer
         int buildableLayerMask = 1 << buildableLayer;
 
-        int builtLayer = 7; // Built layer
+        int builtLayer = 8; // Built layer
         int builtLayerMask = 1 << builtLayer;
 
         if (SpawnedGhost)
@@ -60,7 +54,7 @@ public class BuildMechanic : MonoBehaviour
             Destroy(SpawnedGhost);
         }
 
-        if (Physics.Raycast(transform.position, FacingObject.forward, out hit, 10000000, buildableLayerMask))
+        if (Physics.Raycast(FacingObject.position, FacingObject.forward, out hit, 10000000, buildableLayerMask))
         {
             BuildableState buildableState = hit.collider.GetComponent<BuildableState>();
 
@@ -80,33 +74,33 @@ public class BuildMechanic : MonoBehaviour
                 {
                     if (frontSide)
                     {
-                        blockPlacePosition = hit.transform.position + new Vector3(0, 0, +1);
+                        blockPlacePosition = hit.transform.position + new Vector3(0, 0, +2);
                     }
                     else
                     {
-                        blockPlacePosition = hit.transform.position + new Vector3(0, 0, -1);
+                        blockPlacePosition = hit.transform.position + new Vector3(0, 0, -2);
                     }
                 }
                 else if (Mathf.Abs(hit.point.x - hit.transform.position.x) > Mathf.Abs(hit.point.y - hit.transform.position.y))
                 {
                     if (rightSide)
                     {
-                        blockPlacePosition = hit.transform.position + new Vector3(1, 0, 0);
+                        blockPlacePosition = hit.transform.position + new Vector3(2, 0, 0);
                     }
                     else
                     {
-                        blockPlacePosition = hit.transform.position + new Vector3(-1, 0, 0);
+                        blockPlacePosition = hit.transform.position + new Vector3(-2, 0, 0);
                     }
                 }
                 else
                 {
                     if (topSide)
                     {
-                        blockPlacePosition = hit.transform.position + new Vector3(0, +1, 0);
+                        blockPlacePosition = hit.transform.position + new Vector3(0, +2, 0);
                     }
                     else
                     {
-                        blockPlacePosition = hit.transform.position + new Vector3(0, -1, 0);
+                        blockPlacePosition = hit.transform.position + new Vector3(0, -2, 0);
                     }
                 }
 
@@ -187,8 +181,8 @@ public class BuildMechanic : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            targetPrefab = DoorPrefab;
-            targetGhostPrefab = GhostDoorPrefab;
+            targetPrefab = BlockPrefab;
+            targetGhostPrefab = GhostBlockPrefab;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
@@ -204,11 +198,6 @@ public class BuildMechanic : MonoBehaviour
         {
             targetPrefab = PillerPrefab;
             targetGhostPrefab = GhostPillerPrefab;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            targetPrefab = WindowPrefab;
-            targetGhostPrefab = GhostWindowPrefab;
         }
 
         // Rotate building
@@ -264,133 +253,6 @@ public class BuildMechanic : MonoBehaviour
         point = direction + pivot;
         return point;
     }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawLine(transform.position, transform.position + Camera.main.transform.forward * 1000);
-
-        RaycastHit hit;
-        int buildableLayer = 7; // Building layer
-        int buildableLayerMask = 1 << buildableLayer;
-
-        int builtLayer = 8; // Built layer
-        int builtLayerMask = 1 << builtLayer;
-
-        if (Physics.Raycast(transform.position, FacingObject.forward, out hit, 10, buildableLayerMask))
-        {
-            BuildableState buildableState = hit.collider.GetComponent<BuildableState>();
-
-            if (buildableState != null)
-            {
-                Vector3 blockPlacePosition;
-
-                bool rightSide = false;
-                bool topSide = false;
-                bool frontSide = false;
-
-                rightSide = (FacingObject.forward.x < 0);
-                topSide = (FacingObject.forward.y < 0);
-                frontSide = (FacingObject.forward.z < 0);
-
-                if ((Mathf.Abs(hit.point.z - hit.transform.position.z) > Mathf.Abs(hit.point.y - hit.transform.position.y)) && (Mathf.Abs(hit.point.z - hit.transform.position.z) > Mathf.Abs(hit.point.x - hit.transform.position.x)))
-                {
-                    if (frontSide)
-                    {
-                        blockPlacePosition = hit.transform.position + new Vector3(0, 0, +1);
-                    }
-                    else
-                    {
-                        blockPlacePosition = hit.transform.position + new Vector3(0, 0, -1);
-                    }
-                }
-                else if (Mathf.Abs(hit.point.x - hit.transform.position.x) > Mathf.Abs(hit.point.y - hit.transform.position.y))
-                {
-                    if (rightSide)
-                    {
-                        blockPlacePosition = hit.transform.position + new Vector3(1, 0, 0);
-                    }
-                    else
-                    {
-                        blockPlacePosition = hit.transform.position + new Vector3(-1, 0, 0);
-                    }
-                }
-                else
-                {
-                    if (topSide)
-                    {
-                        blockPlacePosition = hit.transform.position + new Vector3(0, +1, 0);
-                    }
-                    else
-                    {
-                        blockPlacePosition = hit.transform.position + new Vector3(0, -1, 0);
-                    }
-                }
-
-                Quaternion wallRotation = GetRotation();
-
-                BuildableState prefabBuildableState = targetPrefab.GetComponent<BuildableState>();
-                bool canBuild = false;
-
-                if (prefabBuildableState == null)
-                {
-                    //print("Error: Prefab doesnt have a buildableState");
-                }
-                else
-                {
-                    Vector3 boxcastSize = prefabBuildableState.MainCollider.transform.localScale * 0.3f;
-                    boxcastSize.x *= prefabBuildableState.MainCollider.size.x;
-                    boxcastSize.y *= prefabBuildableState.MainCollider.size.y;
-                    boxcastSize.z *= prefabBuildableState.MainCollider.size.z;
-                    Vector3 rotatedSize = RotatePointAroundPivot(boxcastSize, Vector3.zero, wallRotation);
-
-                    Vector3 rotatedPoint = RotatePointAroundPivot(prefabBuildableState.MainCollider.transform.localPosition, Vector3.zero, wallRotation);
-                    Vector3 boxcastPosition = blockPlacePosition + rotatedPoint;
-
-                    if (Physics.CheckBox(boxcastPosition, rotatedSize, Quaternion.identity, builtLayerMask))
-                    {
-                        canBuild = false;
-
-                        //DrawCube(canBuild, rotatedSize, boxcastPosition);
-                    }
-                    else
-                    {
-                        canBuild = true;
-
-                        //DrawCube(canBuild, rotatedSize, boxcastPosition);
-
-                        boxcastSize = prefabBuildableState.MainCollider.transform.localScale * 1.4f;
-                        boxcastSize.x *= prefabBuildableState.MainCollider.size.x;
-                        boxcastSize.y *= prefabBuildableState.MainCollider.size.y;
-                        boxcastSize.z *= prefabBuildableState.MainCollider.size.z;
-                        
-                        rotatedSize = RotatePointAroundPivot(boxcastSize, Vector3.zero, wallRotation);
-                        rotatedSize.x = Mathf.Abs(rotatedSize.x);
-                        rotatedSize.y = Mathf.Abs(rotatedSize.y);
-                        rotatedSize.z = Mathf.Abs(rotatedSize.z);
-                        
-                        if (Physics.CheckBox(boxcastPosition, rotatedSize, Quaternion.identity, builtLayerMask))
-                        {
-                            canBuild = true;
-                        }
-                        else
-                        {
-                            canBuild = false;
-                        }
-
-                        //DrawCube(canBuild, rotatedSize, boxcastPosition);
-                    }
-                }
-                
-            }
-        }
-    }
-
-    /// <summary>
-    /// For debugging  from gizmos
-    /// </summary>
-    /// <param name="canBuild"></param>
-    /// <param name="rotatedSize"></param>
-    /// <param name="boxcastPosition"></param>
     private static void DrawCube(bool canBuild, Vector3 rotatedSize, Vector3 boxcastPosition)
     {
         if (canBuild)

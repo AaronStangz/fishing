@@ -15,7 +15,7 @@ C:/Users/aaron/Documents/GitHub/fishing/Fishing Game
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-58708
+59334
 Successfully changed project path to: C:/Users/aaron/Documents/GitHub/fishing/Fishing Game
 C:/Users/aaron/Documents/GitHub/fishing/Fishing Game
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ C:/Users/aaron/Documents/GitHub/fishing/Fishing Game
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 108.52 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 98.22 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.10f1 (1c7d0df0160b)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/Resources/UnitySubsystems
@@ -63,75 +63,75 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56556
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56260
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.10f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.003525 seconds.
+Registered in 0.003632 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 108.05 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 92.32 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.543 seconds
+- Completed reload, in  0.492 seconds
 Domain Reload Profiling:
-	ReloadAssembly (543ms)
-		BeginReloadAssembly (49ms)
+	ReloadAssembly (492ms)
+		BeginReloadAssembly (54ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (401ms)
-			LoadAssemblies (48ms)
+		EndReloadAssembly (363ms)
+			LoadAssemblies (52ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (81ms)
+			SetupTypeCache (70ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (21ms)
-			SetupLoadedEditorAssemblies (258ms)
+			RebuildScriptCaches (20ms)
+			SetupLoadedEditorAssemblies (237ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (6ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (108ms)
+				RefreshPlugins (92ms)
 				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (108ms)
-				ProcessInitializeOnLoadMethodAttributes (34ms)
+				ProcessInitializeOnLoadAttributes (104ms)
+				ProcessInitializeOnLoadMethodAttributes (33ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.006032 seconds.
+Registered in 0.006205 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image C:\Users\aaron\Documents\GitHub\fishing\Fishing Game\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image C:\Users\aaron\Documents\GitHub\fishing\Fishing Game\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 121.77 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 99.29 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.420 seconds
+- Completed reload, in  1.171 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1420ms)
-		BeginReloadAssembly (94ms)
+	ReloadAssembly (1172ms)
+		BeginReloadAssembly (82ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (5ms)
+			DisableScriptedObjects (4ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (21ms)
-		EndReloadAssembly (1239ms)
-			LoadAssemblies (70ms)
+			CreateAndSetChildDomain (18ms)
+		EndReloadAssembly (1007ms)
+			LoadAssemblies (73ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (307ms)
+			SetupTypeCache (232ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (99ms)
-			SetupLoadedEditorAssemblies (708ms)
+			RebuildScriptCaches (73ms)
+			SetupLoadedEditorAssemblies (588ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (122ms)
-				BeforeProcessingInitializeOnLoad (117ms)
-				ProcessInitializeOnLoadAttributes (286ms)
-				ProcessInitializeOnLoadMethodAttributes (174ms)
+				RefreshPlugins (99ms)
+				BeforeProcessingInitializeOnLoad (103ms)
+				ProcessInitializeOnLoadAttributes (257ms)
+				ProcessInitializeOnLoadMethodAttributes (119ms)
 				AfterProcessingInitializeOnLoad (5ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
@@ -139,13 +139,13 @@ Domain Reload Profiling:
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 1.80 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 1.22 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 6304 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 51 unused Assets / (3.4 MB). Loaded Objects now: 6762.
-Memory consumption went from 284.6 MB to 281.1 MB.
-Total: 5.155200 ms (FindLiveObjects: 0.470200 ms CreateObjectMapping: 0.464500 ms MarkObjects: 3.609300 ms  DeleteObjects: 0.610400 ms)
+Memory consumption went from 284.6 MB to 281.2 MB.
+Total: 4.752500 ms (FindLiveObjects: 0.466500 ms CreateObjectMapping: 0.523600 ms MarkObjects: 3.128200 ms  DeleteObjects: 0.633500 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -160,121 +160,125 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 101133.759173 seconds.
+  Time since last request: 131620.241666 seconds.
   path: Assets/Prefab/CraftingBench.prefab
   artifactKey: Guid(0127d4aa3135a4b4faa20d5b46db4d2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefab/CraftingBench.prefab using Guid(0127d4aa3135a4b4faa20d5b46db4d2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f71cc52e2a4daa5cce5f40c2ebae2b3') in 1.146174 seconds 
+Start importing Assets/Prefab/CraftingBench.prefab using Guid(0127d4aa3135a4b4faa20d5b46db4d2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a56bc83bd7b5cbf7f3302a52e7e0dbf') in 0.717867 seconds 
 ========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.007070 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\aaron\Documents\GitHub\fishing\Fishing Game\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\aaron\Documents\GitHub\fishing\Fishing Game\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.23 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.126 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1127ms)
-		BeginReloadAssembly (192ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (33ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (68ms)
-		EndReloadAssembly (850ms)
-			LoadAssemblies (72ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (240ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (68ms)
-			SetupLoadedEditorAssemblies (358ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (9ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (82ms)
-				ProcessInitializeOnLoadAttributes (228ms)
-				ProcessInitializeOnLoadMethodAttributes (31ms)
-				AfterProcessingInitializeOnLoad (5ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (14ms)
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 3.66 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5980 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 48 unused Assets / (3.4 MB). Loaded Objects now: 6883.
-Memory consumption went from 273.5 MB to 270.1 MB.
-Total: 4.669100 ms (FindLiveObjects: 0.509200 ms CreateObjectMapping: 0.442900 ms MarkObjects: 3.054800 ms  DeleteObjects: 0.661400 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+Received Import Request.
+  Time since last request: 11.817836 seconds.
+  path: Assets/Moddels/ScrapDoor1.fbx
+  artifactKey: Guid(6d768a1c03a39b64b9243b9de8a9f9e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Moddels/ScrapDoor1.fbx using Guid(6d768a1c03a39b64b9243b9de8a9f9e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd031460e77a583f2aa4d250d6e6ea70') in 0.146999 seconds 
 ========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.006448 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image C:\Users\aaron\Documents\GitHub\fishing\Fishing Game\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Symbol file LoadedFromMemory doesn't match image C:\Users\aaron\Documents\GitHub\fishing\Fishing Game\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.17 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.130 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1131ms)
-		BeginReloadAssembly (148ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (5ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (48ms)
-		EndReloadAssembly (908ms)
-			LoadAssemblies (87ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (295ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (54ms)
-			SetupLoadedEditorAssemblies (383ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (10ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (98ms)
-				ProcessInitializeOnLoadAttributes (238ms)
-				ProcessInitializeOnLoadMethodAttributes (30ms)
-				AfterProcessingInitializeOnLoad (5ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (11ms)
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 2.18 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5980 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 44 unused Assets / (3.4 MB). Loaded Objects now: 6886.
-Memory consumption went from 273.3 MB to 269.9 MB.
-Total: 4.518500 ms (FindLiveObjects: 0.429400 ms CreateObjectMapping: 0.428000 ms MarkObjects: 3.051800 ms  DeleteObjects: 0.608400 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Moddels/ScrapDoor3.fbx
+  artifactKey: Guid(8853a42aaea8d804484788da5566392f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Moddels/ScrapDoor3.fbx using Guid(8853a42aaea8d804484788da5566392f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bb99a7aca51128421c7e53bca5ec34a1') in 0.068407 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Moddels/ScrapPiller2.fbx
+  artifactKey: Guid(4aa97a01367621e408a389b8bc1dc343) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Moddels/ScrapPiller2.fbx using Guid(4aa97a01367621e408a389b8bc1dc343) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4ed3cbcd254e6c6de8c7a164cb699195') in 0.215226 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Moddels/ScrapWindow3.fbx
+  artifactKey: Guid(9c5bab63444c65644bcd9a6eef3abee7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Moddels/ScrapWindow3.fbx using Guid(9c5bab63444c65644bcd9a6eef3abee7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '415caa6bc5c55ab837fad1cf18b98b6b') in 0.062477 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Moddels/ScrapPiller1.fbx
+  artifactKey: Guid(8cb563547f592234d9724bc43a6acde4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Moddels/ScrapPiller1.fbx using Guid(8cb563547f592234d9724bc43a6acde4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e87fc7f0ac6223cc190de1820a2c0c4') in 0.087032 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000061 seconds.
+  path: Assets/Moddels/ScrapPiller3.fbx
+  artifactKey: Guid(695e71dd20d7c6143ab156f2066e8468) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Moddels/ScrapPiller3.fbx using Guid(695e71dd20d7c6143ab156f2066e8468) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9cada6721373cc233df28a8f133eff9a') in 0.070158 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Moddels/ScrapFloor3.fbx
+  artifactKey: Guid(1585125fd9bfcf9408d8328743077578) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Moddels/ScrapFloor3.fbx using Guid(1585125fd9bfcf9408d8328743077578) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1c52040294b1154301802bdbb2bdf75') in 0.087243 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000050 seconds.
+  path: Assets/Moddels/ScrapWindow1.fbx
+  artifactKey: Guid(34945fcfd9c2a5844810593808c22ead) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Moddels/ScrapWindow1.fbx using Guid(34945fcfd9c2a5844810593808c22ead) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a421bbe4e16d908ce4ebced3e658c5e') in 0.067398 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 671.022020 seconds.
+  path: Assets/Moddels/ScrapDoor2.fbx
+  artifactKey: Guid(461f193278104af4bb26d1fa9e3465a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Moddels/ScrapDoor2.fbx using Guid(461f193278104af4bb26d1fa9e3465a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bef831c333d9fc41c446f350d27f6944') in 0.126500 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Moddels/ScrapWall3.fbx
+  artifactKey: Guid(ec854523f901ee042a85c068d567800c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Moddels/ScrapWall3.fbx using Guid(ec854523f901ee042a85c068d567800c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7fbcb0080c8177d10a3386a1752b04ee') in 0.105810 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Moddels/ScrapDoor3.fbx
+  artifactKey: Guid(8853a42aaea8d804484788da5566392f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Moddels/ScrapDoor3.fbx using Guid(8853a42aaea8d804484788da5566392f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b2861ccca9f066f637ce0077ca4c2eeb') in 0.080570 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000056 seconds.
+  path: Assets/Moddels/ScrapWindow2.fbx
+  artifactKey: Guid(3c2284bcf9c6ca64793058f757e2027f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Moddels/ScrapWindow2.fbx using Guid(3c2284bcf9c6ca64793058f757e2027f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '60dfb11ce00450c2b4ed6fd0d112d0b2') in 0.082412 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Moddels/ScrapPiller2.fbx
+  artifactKey: Guid(4aa97a01367621e408a389b8bc1dc343) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Moddels/ScrapPiller2.fbx using Guid(4aa97a01367621e408a389b8bc1dc343) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6297d48656210d4cbece8d808de6dada') in 0.271673 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Moddels/ScrapWindow3.fbx
+  artifactKey: Guid(9c5bab63444c65644bcd9a6eef3abee7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Moddels/ScrapWindow3.fbx using Guid(9c5bab63444c65644bcd9a6eef3abee7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fbcb3a5f0be81653ce8ce9db7da01d0') in 0.075258 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Moddels/ScrapFloor1.fbx
+  artifactKey: Guid(f0ef26220deea46459bce0cacacc8114) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Moddels/ScrapFloor1.fbx using Guid(f0ef26220deea46459bce0cacacc8114) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2fb91556226bb81d0b49a9f70016e43') in 0.191509 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Moddels/ScrapPiller1.fbx
+  artifactKey: Guid(8cb563547f592234d9724bc43a6acde4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Moddels/ScrapPiller1.fbx using Guid(8cb563547f592234d9724bc43a6acde4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a14dcb0541c4fe7a89902bad84eaf89') in 0.066111 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000048 seconds.
+  path: Assets/Moddels/ScrapPiller3.fbx
+  artifactKey: Guid(695e71dd20d7c6143ab156f2066e8468) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Moddels/ScrapPiller3.fbx using Guid(695e71dd20d7c6143ab156f2066e8468) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52e939bb91f0c8beef976fb8a259fc4b') in 0.054052 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Moddels/ScrapFloor2.fbx
+  artifactKey: Guid(43380ab7a5d71a441a792f76d4e4b39e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Moddels/ScrapFloor2.fbx using Guid(43380ab7a5d71a441a792f76d4e4b39e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b9f4a23262b92cff458385c1d9a3050') in 0.071286 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Moddels/ScrapWall2.fbx
+  artifactKey: Guid(67295a3d8064d1b4c943e43a19896067) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Moddels/ScrapWall2.fbx using Guid(67295a3d8064d1b4c943e43a19896067) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd52eea86bba8d60efdaa78be3979a405') in 0.076180 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
