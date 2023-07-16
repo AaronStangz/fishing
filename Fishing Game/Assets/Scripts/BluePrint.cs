@@ -8,7 +8,6 @@ public class BluePrint : MonoBehaviour
     public GameObject prefab;
 
     [SerializeField] private LayerMask layerMask;
-    [SerializeField] private LayerMask buildable;
 
     void Start()
     {
@@ -33,9 +32,9 @@ public class BluePrint : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            gameObject.transform.rotation *= Quaternion.Euler(0, 0, 1);
+            gameObject.transform.rotation *= Quaternion.Euler(0, 25, 0);
         }
     }
 }

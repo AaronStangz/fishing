@@ -13,6 +13,8 @@ public class Collect : MonoBehaviour
     Inventory paperCount;
     Inventory plasticCount;
     Inventory ropeCount;
+    Inventory clayCount;
+    Inventory brickCount;
 
     [Header("How Much To Give")]
     public int Metal;
@@ -24,6 +26,8 @@ public class Collect : MonoBehaviour
     public int Paper;
     public int Plastic;
     public int Rope;
+    public int Clay;
+    public int Brick;
 
     GameObject player;
 
@@ -39,6 +43,8 @@ public class Collect : MonoBehaviour
         paperCount = player.GetComponent<Inventory>();
         plasticCount = player.GetComponent<Inventory>();
         ropeCount = player.GetComponent<Inventory>();
+        clayCount = player.GetComponent<Inventory>();
+        brickCount = player.GetComponent<Inventory>();
     }
 
     void OnTriggerStay(Collider collision)
@@ -63,5 +69,7 @@ public class Collect : MonoBehaviour
         paperCount.paperCount += Paper;
         plasticCount.plasticCount += Plastic;
         ropeCount.ropeCount += Rope;
+        clayCount.clayCount += Clay;
+        brickCount.brickCount += Brick;
     }
 }

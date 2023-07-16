@@ -10,6 +10,7 @@ TagManager:
   - HarpoonableObject
   - HarpoonableFish
   - Buildable
+  - Smelter
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Buildable
   - Built
   - CraftingBeach
-  - 
+  - SmelterLayer
   - 
   - 
   - 

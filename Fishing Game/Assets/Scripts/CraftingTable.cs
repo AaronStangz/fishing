@@ -17,6 +17,20 @@ public class CraftingTable : MonoBehaviour
     Inventory paperCount;
     Inventory plasticCount;
     Inventory ropeCount;
+    Inventory clayCount;
+    Inventory brickCount;
+
+    public GameObject metalToNailsText;
+    public GameObject scrapMetalToMetalText;
+    public GameObject scrapWoodToWoodText;
+    public GameObject smelterText;
+    public GameObject clayToBrickText;
+
+    public GameObject toolTab;
+    public GameObject stations;
+    public GameObject itemTab;
+
+    public GameObject SmelterPrefab;
 
     GameObject player;
 
@@ -43,14 +57,17 @@ public class CraftingTable : MonoBehaviour
         paperCount = player.GetComponent<Inventory>();
         plasticCount = player.GetComponent<Inventory>();
         ropeCount = player.GetComponent<Inventory>();
+        clayCount = player.GetComponent<Inventory>();
+        brickCount = player.GetComponent<Inventory>();
         camScrpit = player.GetComponent<PlayerCam>();
     }
 
     void Update()
     {
-        if(CraftGuiOpen == true)
+        TextUpdate();
+
+        if (CraftGuiOpen == true)
         {
-            craftGui.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Escape();
         }
@@ -69,11 +86,43 @@ public class CraftingTable : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     //camScrpit.enabled = false;
+                    craftGui.SetActive(true);
                     Debug.Log("OpeningCraftingBeach");
                     CraftGuiOpen = true;
                 }
             }
         }
+    }
+
+    public void ToolsTab()
+    {
+        toolTab.SetActive(true);
+        itemTab.SetActive(false);
+        stations.SetActive(false);
+    }
+    ////////////////////////////////////////////////////////////////////////////////////////////// StationTab ///////////////////////////////////////////////////////////////////////////////////////////
+    public void StationTab()
+    {
+        toolTab.SetActive(false);
+        itemTab.SetActive(false);
+        stations.SetActive(true);
+    }
+    public void Smelter()
+    {
+        if (brickCount.brickCount >= 8)
+        {
+            brickCount.brickCount -= 8;
+            Instantiate(SmelterPrefab);
+            ForceEscape();
+        }
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////// ItemTab ///////////////////////////////////////////////////////////////////////////////////////////
+    public void ItemTab()
+    {
+        itemTab.SetActive(true);
+        toolTab.SetActive(false);
+        stations.SetActive(false);
     }
 
     public void MetalToNails()
@@ -99,6 +148,26 @@ public class CraftingTable : MonoBehaviour
             scrapWoodCount.scrapWoodCount -= 4;
             woodCount.woodCount += 1;
         }
+    }
+    public void ClayToBrick()
+    {
+        if (clayCount.clayCount >= 4)
+        {
+            clayCount.clayCount -= 4;
+            brickCount.brickCount += 1;
+        }
+    }
+    public void TextUpdate()
+    {
+        if (CraftGuiOpen == true)
+        {
+            metalToNailsText.GetComponent<TextMeshProUGUI>().text = "( Metal: " + metalCount.metalCount + " / 1 )";
+            scrapMetalToMetalText.GetComponent<TextMeshProUGUI>().text = "( ScrapMetal: " + scrapMetalCount.scrapMetalCount + " / 4 )";
+            scrapWoodToWoodText.GetComponent<TextMeshProUGUI>().text = "( ScrapWood: " + scrapWoodCount.scrapWoodCount + " / 4 )";
+            smelterText.GetComponent<TextMeshProUGUI>().text = "( Scrapbrick: " + brickCount.brickCount + " / 8 )";
+            clayToBrickText.GetComponent<TextMeshProUGUI>().text = "( Clay: " + clayCount.clayCount + " / 4 )";
+        }
+        else return;
     }
 
     void Escape()

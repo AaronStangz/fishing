@@ -17,6 +17,8 @@ public class Inventory : MonoBehaviour
     public int paperCount;
     public int plasticCount;
     public int ropeCount;
+    public int clayCount;
+    public int brickCount;
 
     [Header("Player & Cameras")]
     public GameObject PlayerCam;
@@ -28,6 +30,7 @@ public class Inventory : MonoBehaviour
 
     [Header("Items")]
     public GameObject harpoonItem;
+    public GameObject hamerItem;
     public GameObject metalItem;
     public GameObject scrapMetalItem;
     public GameObject rawMetalItem;
@@ -37,9 +40,12 @@ public class Inventory : MonoBehaviour
     public GameObject paperItem;
     public GameObject plasticItem;
     public GameObject ropeItem;
+    public GameObject clayItem;
+    public GameObject brickItem;
 
     [Header("Mat Text")]
     public GameObject harpoonText;
+    public GameObject hamerText;
     public GameObject metalText;
     public GameObject scrapMetalText;
     public GameObject rawMetalText;
@@ -49,10 +55,14 @@ public class Inventory : MonoBehaviour
     public GameObject paperText;
     public GameObject plasticText;
     public GameObject ropeText;
+    public GameObject clayText;
+    public GameObject brickText;
 
     [Header("HoldableItems")]
     public GameObject harpoonItemHoldable;
     public GameObject harpoonGUI;
+    public GameObject hamerItemHoldable;
+    public GameObject hamerGUI;
 
     private PlayerMovement Move;
     public bool InvOpen = false;
@@ -81,6 +91,8 @@ public class Inventory : MonoBehaviour
             //Move.enabled = false;
             harpoonItemHoldable.SetActive(false);
             harpoonGUI.SetActive(false);
+            hamerItemHoldable.SetActive(false);
+            hamerGUI.SetActive(false);
 
             camScrpit.enabled = false;
             Inv.SetActive(true);
@@ -92,114 +104,143 @@ public class Inventory : MonoBehaviour
 
     void TextUpdate()
     {
-        if(metalCount >= 1)
+        if (InvOpen == true)
         {
-            metalText.SetActive(true);
-            metalItem.SetActive(true);
-            metalText.GetComponent<TextMeshProUGUI>().text = "(Metal: " + metalCount + ")";
-        }
-        else
-        {
-            metalText.SetActive(false);
-            metalItem.SetActive(false);
-        }
+            if (metalCount >= 1)
+            {
+                metalText.SetActive(true);
+                metalItem.SetActive(true);
+                metalText.GetComponent<TextMeshProUGUI>().text = "(Metal: " + metalCount + ")";
+            }
+            else
+            {
+                metalText.SetActive(false);
+                metalItem.SetActive(false);
+            }
 
-        if (scrapMetalCount >= 1)
-        {
-            scrapMetalText.SetActive(true);
-            scrapMetalItem.SetActive(true);
-            scrapMetalText.GetComponent<TextMeshProUGUI>().text = "(ScrapMetal: " + scrapMetalCount + ")";
-        }
-        else
-        {
-            scrapMetalText.SetActive(false);
-            scrapMetalItem.SetActive(false);
-        }
+            if (scrapMetalCount >= 1)
+            {
+                scrapMetalText.SetActive(true);
+                scrapMetalItem.SetActive(true);
+                scrapMetalText.GetComponent<TextMeshProUGUI>().text = "(ScrapMetal: " + scrapMetalCount + ")";
+            }
+            else
+            {
+                scrapMetalText.SetActive(false);
+                scrapMetalItem.SetActive(false);
+            }
 
-        if (rawMetalCount >= 1)
-        {
-            rawMetalText.SetActive(true);
-            rawMetalItem.SetActive(true);
-            rawMetalText.GetComponent<TextMeshProUGUI>().text = "(RawMetal: " + rawMetalCount + ")";
-        }
-        else
-        {
-            rawMetalText.SetActive(false);
-            rawMetalItem.SetActive(false);
-        }
+            if (rawMetalCount >= 1)
+            {
+                rawMetalText.SetActive(true);
+                rawMetalItem.SetActive(true);
+                rawMetalText.GetComponent<TextMeshProUGUI>().text = "(RawMetal: " + rawMetalCount + ")";
+            }
+            else
+            {
+                rawMetalText.SetActive(false);
+                rawMetalItem.SetActive(false);
+            }
 
-        if (woodCount >= 1)
-        {
-            woodText.SetActive(true);
-            woodItem.SetActive(true);
-            woodText.GetComponent<TextMeshProUGUI>().text = "(Wood: " + woodCount + ")";
-        }
-        else
-        {
-            woodText.SetActive(false);
-            woodItem.SetActive(false);
-        }
+            if (woodCount >= 1)
+            {
+                woodText.SetActive(true);
+                woodItem.SetActive(true);
+                woodText.GetComponent<TextMeshProUGUI>().text = "(Wood: " + woodCount + ")";
+            }
+            else
+            {
+                woodText.SetActive(false);
+                woodItem.SetActive(false);
+            }
 
-        if (scrapWoodCount >= 1)
-        {
-            scrapWoodText.SetActive(true);
-            scrapWoodItem.SetActive(true);
-            scrapWoodText.GetComponent<TextMeshProUGUI>().text = "(ScrapWood: " + scrapWoodCount + ")";
-        }
-        else
-        {
-            scrapWoodText.SetActive(false);
-            scrapWoodItem.SetActive(false);
-        }
+            if (scrapWoodCount >= 1)
+            {
+                scrapWoodText.SetActive(true);
+                scrapWoodItem.SetActive(true);
+                scrapWoodText.GetComponent<TextMeshProUGUI>().text = "(ScrapWood: " + scrapWoodCount + ")";
+            }
+            else
+            {
+                scrapWoodText.SetActive(false);
+                scrapWoodItem.SetActive(false);
+            }
 
-        if (nailsCount >= 1)
-        {
-            nailsText.SetActive(true);
-            nailsItem.SetActive(true);
-            nailsText.GetComponent<TextMeshProUGUI>().text = "(Nails: " + nailsCount + ")";
-        }
-        else
-        {
-            nailsText.SetActive(false);
-            nailsItem.SetActive(false);
-        }
+            if (nailsCount >= 1)
+            {
+                nailsText.SetActive(true);
+                nailsItem.SetActive(true);
+                nailsText.GetComponent<TextMeshProUGUI>().text = "(Nails: " + nailsCount + ")";
+            }
+            else
+            {
+                nailsText.SetActive(false);
+                nailsItem.SetActive(false);
+            }
 
-        if (paperCount >= 1)
-        {
-            paperText.SetActive(true);
-            paperItem.SetActive(true);
-            paperText.GetComponent<TextMeshProUGUI>().text = "(Paper: " + paperCount + ")";
-        }
-        else
-        {
-            paperText.SetActive(false);
-            paperItem.SetActive(false);
-        }
+            if (paperCount >= 1)
+            {
+                paperText.SetActive(true);
+                paperItem.SetActive(true);
+                paperText.GetComponent<TextMeshProUGUI>().text = "(Paper: " + paperCount + ")";
+            }
+            else
+            {
+                paperText.SetActive(false);
+                paperItem.SetActive(false);
+            }
 
-        if (plasticCount >= 1)
-        {
-            plasticText.SetActive(true);
-            plasticItem.SetActive(true);
-            plasticText.GetComponent<TextMeshProUGUI>().text = "(Plastic: " + plasticCount + " ";
-        }
-        else
-        {
-            plasticText.SetActive(false);
-            plasticItem.SetActive(false);
-        }
+            if (plasticCount >= 1)
+            {
+                plasticText.SetActive(true);
+                plasticItem.SetActive(true);
+                plasticText.GetComponent<TextMeshProUGUI>().text = "(Plastic: " + plasticCount + " ";
+            }
+            else
+            {
+                plasticText.SetActive(false);
+                plasticItem.SetActive(false);
+            }
 
+            if (ropeCount >= 1)
+            {
+                ropeText.SetActive(true);
+                ropeItem.SetActive(true);
+                ropeText.GetComponent<TextMeshProUGUI>().text = "(Rope: " + ropeCount + ")";
+            }
+            else
+            {
+                ropeText.SetActive(false);
+                ropeItem.SetActive(false);
+            }
 
-        if (ropeCount >= 1)
-        {
-            ropeText.SetActive(true);
-            ropeItem.SetActive(true);
-            ropeText.GetComponent<TextMeshProUGUI>().text = "(Rope: " + ropeCount + ")";
+            if (clayCount >= 1)
+            {
+                clayText.SetActive(true);
+                clayItem.SetActive(true);
+                clayText.GetComponent<TextMeshProUGUI>().text = "(Clay: " + clayCount + ")";
+            }
+            else
+            {
+                clayText.SetActive(false);
+                clayItem.SetActive(false);
+            }
+
+            if (brickCount >= 1)
+            {
+                brickText.SetActive(true);
+                brickItem.SetActive(true);
+                brickText.GetComponent<TextMeshProUGUI>().text = "(Bricks: " + clayCount + ")";
+            }
+            else
+            {
+                brickText.SetActive(false);
+                brickItem.SetActive(false);
+            }
         }
-        else
-        {
-            ropeText.SetActive(false);
-            ropeItem.SetActive(false);
-        }
+        else return;
+
+       
     }
 
     public void HoldHarpoon()
@@ -208,6 +249,13 @@ public class Inventory : MonoBehaviour
         Debug.Log("HoldingHarpoon");
         harpoonItemHoldable.SetActive(true);
         harpoonGUI.SetActive(true);
+    }
+    public void HoldHamer()
+    {
+        ForceEscape();
+        Debug.Log("HoldingHamer");
+        hamerItemHoldable.SetActive(false);
+        hamerGUI.SetActive(false);
     }
     void Escape()
     {
