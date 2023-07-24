@@ -19,18 +19,47 @@ public class CraftingTable : MonoBehaviour
     Inventory ropeCount;
     Inventory clayCount;
     Inventory brickCount;
+    Inventory clothCount;
+
+    Inventory maxMetalCount;
+    Inventory maxScrapMetalCount;
+    Inventory maxRawMetalCount;
+    Inventory maxWoodCount;
+    Inventory maxScrapWoodCount;
+    Inventory maxNailsCount;
+    Inventory maxPaperCount;
+    Inventory maxPlasticCount;
+    Inventory maxRopeCount;
+    Inventory maxClayCount;
+    Inventory maxBrickCount;
+    Inventory maxClothCount;
 
     public GameObject metalToNailsText;
-    public GameObject scrapMetalToMetalText;
     public GameObject scrapWoodToWoodText;
-    public GameObject smelterText;
     public GameObject clayToBrickText;
+
+    public GameObject smelterText;
+
+    public GameObject tableText;
+    public GameObject coffeeTableText;
+    public GameObject carpetText;
+    public GameObject chairText;
+    public GameObject shelfText;
+    public GameObject smallShelfText;
 
     public GameObject toolTab;
     public GameObject stations;
     public GameObject itemTab;
+    public GameObject decorationTab;
 
-    public GameObject SmelterPrefab;
+    public GameObject smelterPrefab;
+
+    public GameObject tablePrefab;
+    public GameObject coffeeTablePrefab; // the guy who made the buidling Styem
+    public GameObject carpetPrefab;
+    public GameObject chairPrefab;
+    public GameObject shelfPrefab;
+    public GameObject smallShelfPrefab;
 
     GameObject player;
 
@@ -59,7 +88,20 @@ public class CraftingTable : MonoBehaviour
         ropeCount = player.GetComponent<Inventory>();
         clayCount = player.GetComponent<Inventory>();
         brickCount = player.GetComponent<Inventory>();
-        camScrpit = player.GetComponent<PlayerCam>();
+        clothCount = player.GetComponent<Inventory>();
+
+        maxMetalCount = player.GetComponent<Inventory>();
+        maxScrapMetalCount = player.GetComponent<Inventory>();
+        maxRawMetalCount = player.GetComponent<Inventory>();
+        maxWoodCount = player.GetComponent<Inventory>();
+        maxScrapWoodCount = player.GetComponent<Inventory>();
+        maxNailsCount = player.GetComponent<Inventory>();
+        maxPaperCount = player.GetComponent<Inventory>();
+        maxPlasticCount = player.GetComponent<Inventory>();
+        maxRopeCount = player.GetComponent<Inventory>();
+        maxClayCount = player.GetComponent<Inventory>();
+        maxBrickCount = player.GetComponent<Inventory>();
+        maxClothCount = player.GetComponent<Inventory>();
     }
 
     void Update()
@@ -99,6 +141,7 @@ public class CraftingTable : MonoBehaviour
         toolTab.SetActive(true);
         itemTab.SetActive(false);
         stations.SetActive(false);
+        decorationTab.SetActive(false);
     }
     ////////////////////////////////////////////////////////////////////////////////////////////// StationTab ///////////////////////////////////////////////////////////////////////////////////////////
     public void StationTab()
@@ -106,13 +149,14 @@ public class CraftingTable : MonoBehaviour
         toolTab.SetActive(false);
         itemTab.SetActive(false);
         stations.SetActive(true);
+        decorationTab.SetActive(false);
     }
     public void Smelter()
     {
         if (brickCount.brickCount >= 8)
         {
             brickCount.brickCount -= 8;
-            Instantiate(SmelterPrefab);
+            Instantiate(smelterPrefab);
             ForceEscape();
         }
     }
@@ -123,27 +167,20 @@ public class CraftingTable : MonoBehaviour
         itemTab.SetActive(true);
         toolTab.SetActive(false);
         stations.SetActive(false);
+        decorationTab.SetActive(false);
     }
 
     public void MetalToNails()
     {
-        if (metalCount.metalCount >= 1)
+        if (metalCount.metalCount >= 1 && nailsCount.nailsCount < maxNailsCount.maxNailsCount)
         {
             metalCount.metalCount -= 1;
             nailsCount.nailsCount += 2;
         }
     }
-    public void ScrapMetalToMetal()
-    {
-        if (scrapMetalCount.scrapMetalCount >= 4)
-        {
-            scrapMetalCount.scrapMetalCount -= 4;
-            metalCount.metalCount += 1;
-        }
-    }
     public void ScrapWoodToWood()
     {
-        if (scrapWoodCount.scrapWoodCount >= 4)
+        if (scrapWoodCount.scrapWoodCount >= 4 && woodCount.woodCount < maxWoodCount.maxWoodCount)
         {
             scrapWoodCount.scrapWoodCount -= 4;
             woodCount.woodCount += 1;
@@ -151,10 +188,78 @@ public class CraftingTable : MonoBehaviour
     }
     public void ClayToBrick()
     {
-        if (clayCount.clayCount >= 4)
+        if (clayCount.clayCount >= 4 && brickCount.brickCount < maxBrickCount.maxBrickCount)
         {
             clayCount.clayCount -= 4;
             brickCount.brickCount += 1;
+        }
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////// ItemTab ///////////////////////////////////////////////////////////////////////////////////////////
+    public void DecorationTab()
+    {
+        itemTab.SetActive(false);
+        toolTab.SetActive(false);
+        stations.SetActive(false);
+        decorationTab.SetActive(true);
+    }
+    public void Table()
+    {
+        if (woodCount.woodCount >= 8 && nailsCount.nailsCount >= 4)
+        {
+            woodCount.woodCount -= 8;
+            nailsCount.nailsCount -= 4;
+            Instantiate(tablePrefab);
+            ForceEscape();
+        }
+    }
+    public void CoffeeTable()
+    {
+        if (woodCount.woodCount >= 4 && nailsCount.nailsCount >= 4)
+        {
+            woodCount.woodCount -= 4;
+            nailsCount.nailsCount -= 4;
+            Instantiate(coffeeTablePrefab);
+            ForceEscape();
+        }
+    }
+    public void Carpet()
+    {
+        if (clothCount.clothCount >= 4)
+        {
+            clothCount.clothCount -= 4;
+            Instantiate(carpetPrefab);
+            ForceEscape();
+        }
+    }
+    public void Chair()
+    {
+        if (woodCount.woodCount >= 6 && nailsCount.nailsCount >= 6)
+        {
+            woodCount.woodCount -= 6;
+            nailsCount.nailsCount -= 6;
+            Instantiate(chairPrefab);
+            ForceEscape();
+        }
+    }
+    public void Shelf()
+    {
+        if (woodCount.woodCount >= 5 && nailsCount.nailsCount >= 6)
+        {
+            woodCount.woodCount -= 5;
+            nailsCount.nailsCount -= 6;
+            Instantiate(shelfPrefab);
+            ForceEscape();
+        }
+    }
+    public void SmallShelf()
+    {
+        if (woodCount.woodCount >= 4 && nailsCount.nailsCount >= 4)
+        {
+            woodCount.woodCount -= 4;
+            nailsCount.nailsCount -= 4;
+            Instantiate(smallShelfPrefab);
+            ForceEscape();
         }
     }
     public void TextUpdate()
@@ -162,10 +267,16 @@ public class CraftingTable : MonoBehaviour
         if (CraftGuiOpen == true)
         {
             metalToNailsText.GetComponent<TextMeshProUGUI>().text = "( Metal: " + metalCount.metalCount + " / 1 )";
-            scrapMetalToMetalText.GetComponent<TextMeshProUGUI>().text = "( ScrapMetal: " + scrapMetalCount.scrapMetalCount + " / 4 )";
             scrapWoodToWoodText.GetComponent<TextMeshProUGUI>().text = "( ScrapWood: " + scrapWoodCount.scrapWoodCount + " / 4 )";
             smelterText.GetComponent<TextMeshProUGUI>().text = "( Scrapbrick: " + brickCount.brickCount + " / 8 )";
             clayToBrickText.GetComponent<TextMeshProUGUI>().text = "( Clay: " + clayCount.clayCount + " / 4 )";
+
+            tableText.GetComponent<TextMeshProUGUI>().text = "( Wood: " + woodCount.woodCount + " / 8 )" + "( Nail: " + nailsCount.nailsCount + " / 4 )";
+            coffeeTableText.GetComponent<TextMeshProUGUI>().text = "( Wood: " + woodCount.woodCount + " / 4 )" + "( Nail: " + nailsCount.nailsCount + " / 4 )";
+            carpetText.GetComponent<TextMeshProUGUI>().text = "( Cloth: " + clothCount.clothCount + " / 4 )";
+            chairText.GetComponent<TextMeshProUGUI>().text = "( Wood: " + woodCount.woodCount + " / 6 )" + "( Nail: " + nailsCount.nailsCount + " / 6 )";
+            shelfText.GetComponent<TextMeshProUGUI>().text = "( Wood: " + woodCount.woodCount + " / 5 )" + "( Nail: " + nailsCount.nailsCount + " / 6 )";
+            smallShelfText.GetComponent<TextMeshProUGUI>().text = "( Wood: " + woodCount.woodCount + " / 4 )" + "( Nail: " + nailsCount.nailsCount + " / 4 )";
         }
         else return;
     }

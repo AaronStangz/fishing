@@ -19,6 +19,21 @@ public class Inventory : MonoBehaviour
     public int ropeCount;
     public int clayCount;
     public int brickCount;
+    public int clothCount;
+
+    [Header("MaxMats")]
+    public int maxMetalCount;
+    public int maxScrapMetalCount;
+    public int maxRawMetalCount;
+    public int maxWoodCount;
+    public int maxScrapWoodCount;
+    public int maxNailsCount;
+    public int maxPaperCount;
+    public int maxPlasticCount;
+    public int maxRopeCount;
+    public int maxClayCount;
+    public int maxBrickCount;
+    public int maxClothCount;
 
     [Header("Player & Cameras")]
     public GameObject PlayerCam;
@@ -42,6 +57,7 @@ public class Inventory : MonoBehaviour
     public GameObject ropeItem;
     public GameObject clayItem;
     public GameObject brickItem;
+    public GameObject clothItem;
 
     [Header("Mat Text")]
     public GameObject harpoonText;
@@ -57,6 +73,7 @@ public class Inventory : MonoBehaviour
     public GameObject ropeText;
     public GameObject clayText;
     public GameObject brickText;
+    public GameObject clothText;
 
     [Header("HoldableItems")]
     public GameObject harpoonItemHoldable;
@@ -110,7 +127,7 @@ public class Inventory : MonoBehaviour
             {
                 metalText.SetActive(true);
                 metalItem.SetActive(true);
-                metalText.GetComponent<TextMeshProUGUI>().text = "(Metal: " + metalCount + ")";
+                metalText.GetComponent<TextMeshProUGUI>().text = "(Metal: " + metalCount + "/" + maxMetalCount + ")";
             }
             else
             {
@@ -122,7 +139,7 @@ public class Inventory : MonoBehaviour
             {
                 scrapMetalText.SetActive(true);
                 scrapMetalItem.SetActive(true);
-                scrapMetalText.GetComponent<TextMeshProUGUI>().text = "(ScrapMetal: " + scrapMetalCount + ")";
+                scrapMetalText.GetComponent<TextMeshProUGUI>().text = "(ScrapMetal: " + scrapMetalCount + "/" + maxScrapMetalCount + ")";
             }
             else
             {
@@ -134,7 +151,7 @@ public class Inventory : MonoBehaviour
             {
                 rawMetalText.SetActive(true);
                 rawMetalItem.SetActive(true);
-                rawMetalText.GetComponent<TextMeshProUGUI>().text = "(RawMetal: " + rawMetalCount + ")";
+                rawMetalText.GetComponent<TextMeshProUGUI>().text = "(RawMetal: " + rawMetalCount + "/" + maxRawMetalCount + ")";
             }
             else
             {
@@ -146,7 +163,7 @@ public class Inventory : MonoBehaviour
             {
                 woodText.SetActive(true);
                 woodItem.SetActive(true);
-                woodText.GetComponent<TextMeshProUGUI>().text = "(Wood: " + woodCount + ")";
+                woodText.GetComponent<TextMeshProUGUI>().text = "(Wood: " + woodCount + "/" + maxWoodCount + ")";
             }
             else
             {
@@ -158,7 +175,7 @@ public class Inventory : MonoBehaviour
             {
                 scrapWoodText.SetActive(true);
                 scrapWoodItem.SetActive(true);
-                scrapWoodText.GetComponent<TextMeshProUGUI>().text = "(ScrapWood: " + scrapWoodCount + ")";
+                scrapWoodText.GetComponent<TextMeshProUGUI>().text = "(ScrapWood: " + scrapWoodCount + "/" + maxScrapWoodCount + ")";
             }
             else
             {
@@ -170,7 +187,7 @@ public class Inventory : MonoBehaviour
             {
                 nailsText.SetActive(true);
                 nailsItem.SetActive(true);
-                nailsText.GetComponent<TextMeshProUGUI>().text = "(Nails: " + nailsCount + ")";
+                nailsText.GetComponent<TextMeshProUGUI>().text = "(Nails: " + nailsCount + "/" + maxNailsCount + ")";
             }
             else
             {
@@ -182,7 +199,7 @@ public class Inventory : MonoBehaviour
             {
                 paperText.SetActive(true);
                 paperItem.SetActive(true);
-                paperText.GetComponent<TextMeshProUGUI>().text = "(Paper: " + paperCount + ")";
+                paperText.GetComponent<TextMeshProUGUI>().text = "(Paper: " + paperCount + "/" + maxPaperCount + ")";
             }
             else
             {
@@ -194,7 +211,7 @@ public class Inventory : MonoBehaviour
             {
                 plasticText.SetActive(true);
                 plasticItem.SetActive(true);
-                plasticText.GetComponent<TextMeshProUGUI>().text = "(Plastic: " + plasticCount + " ";
+                plasticText.GetComponent<TextMeshProUGUI>().text = "(Plastic: " + plasticCount + "/" + maxPlasticCount + ")";
             }
             else
             {
@@ -206,7 +223,7 @@ public class Inventory : MonoBehaviour
             {
                 ropeText.SetActive(true);
                 ropeItem.SetActive(true);
-                ropeText.GetComponent<TextMeshProUGUI>().text = "(Rope: " + ropeCount + ")";
+                ropeText.GetComponent<TextMeshProUGUI>().text = "(Rope: " + ropeCount + "/" + maxRopeCount + ")";
             }
             else
             {
@@ -218,7 +235,7 @@ public class Inventory : MonoBehaviour
             {
                 clayText.SetActive(true);
                 clayItem.SetActive(true);
-                clayText.GetComponent<TextMeshProUGUI>().text = "(Clay: " + clayCount + ")";
+                clayText.GetComponent<TextMeshProUGUI>().text = "(Clay: " + clayCount + "/" + maxClayCount + ")";
             }
             else
             {
@@ -230,12 +247,23 @@ public class Inventory : MonoBehaviour
             {
                 brickText.SetActive(true);
                 brickItem.SetActive(true);
-                brickText.GetComponent<TextMeshProUGUI>().text = "(Bricks: " + clayCount + ")";
+                brickText.GetComponent<TextMeshProUGUI>().text = "(Bricks: " + brickCount + "/" + maxBrickCount + ")";
             }
             else
             {
                 brickText.SetActive(false);
                 brickItem.SetActive(false);
+            }
+            if (clothCount >= 1)
+            {
+                clothText.SetActive(true);
+                clothItem.SetActive(true);
+                clothText.GetComponent<TextMeshProUGUI>().text = "(Bricks: " + clothCount + "/" + maxClothCount + ")";
+            }
+            else
+            {
+                clothText.SetActive(false);
+                clothItem.SetActive(false);
             }
         }
         else return;

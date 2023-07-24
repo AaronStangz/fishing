@@ -18,6 +18,20 @@ public class Smelter : MonoBehaviour
     Inventory ropeCount;
     Inventory clayCount;
     Inventory brickCount;
+    Inventory clothCount;
+
+    Inventory maxMetalCount;
+    Inventory maxScrapMetalCount;
+    Inventory maxRawMetalCount;
+    Inventory maxWoodCount;
+    Inventory maxScrapWoodCount;
+    Inventory maxNailsCount;
+    Inventory maxPaperCount;
+    Inventory maxPlasticCount;
+    Inventory maxRopeCount;
+    Inventory maxClayCount;
+    Inventory maxBrickCount;
+    Inventory maxClothCount;
 
     Inventory InvOpen;
     GameObject player;
@@ -31,6 +45,7 @@ public class Smelter : MonoBehaviour
     public float metalSmeltingTime;
 
     public GameObject rawMetaltoMetalText;
+    public GameObject scrapMetaltoMetalText;
 
     [SerializeField] private LayerMask SmelterLayer;
 
@@ -52,6 +67,20 @@ public class Smelter : MonoBehaviour
         ropeCount = player.GetComponent<Inventory>();
         clayCount = player.GetComponent<Inventory>();
         brickCount = player.GetComponent<Inventory>();
+        clothCount = player.GetComponent<Inventory>();
+
+        maxMetalCount = player.GetComponent<Inventory>();
+        maxScrapMetalCount = player.GetComponent<Inventory>();
+        maxRawMetalCount = player.GetComponent<Inventory>();
+        maxWoodCount = player.GetComponent<Inventory>();
+        maxScrapWoodCount = player.GetComponent<Inventory>();
+        maxNailsCount = player.GetComponent<Inventory>();
+        maxPaperCount = player.GetComponent<Inventory>();
+        maxPlasticCount = player.GetComponent<Inventory>();
+        maxRopeCount = player.GetComponent<Inventory>();
+        maxClayCount = player.GetComponent<Inventory>();
+        maxBrickCount = player.GetComponent<Inventory>();
+        maxClothCount = player.GetComponent<Inventory>();
     }
 
     
@@ -91,20 +120,37 @@ public class Smelter : MonoBehaviour
 
     public void RawMetalToMetal()
     {
-        if (rawMetalCount.rawMetalCount >= 1 && smelterInUse == false)
+        if (rawMetalCount.rawMetalCount >= 1 && metalCount.metalCount < maxMetalCount.maxMetalCount && smelterInUse == false)
         {
             rawMetalCount.rawMetalCount -= 1;
-            StartCoroutine(CraftingMetal());
+            StartCoroutine(RawMetalToMetalIE());
             targetTimer = metalSmeltingTime;
             smelterInUse = true;
             timer = 0;
         }
     }
 
-    IEnumerator CraftingMetal()
+    IEnumerator RawMetalToMetalIE()
     {
         yield return new WaitForSeconds(metalSmeltingTime);
         metalCount.metalCount += 1;
+        smelterInUse = false;
+    }
+    public void ScrapMetalToMetal()
+    {
+        if (scrapMetalCount.scrapMetalCount >= 4 && metalCount.metalCount < maxMetalCount.maxMetalCount && smelterInUse == false)
+        {
+            scrapMetalCount.scrapMetalCount -= 4;
+            StartCoroutine(ScrapMetalToMetalIE());
+            targetTimer = metalSmeltingTime;
+            smelterInUse = true;
+            timer = 0;
+        }
+    }
+    IEnumerator ScrapMetalToMetalIE()
+    {
+        yield return new WaitForSeconds(metalSmeltingTime);
+        metalCount.metalCount += 2;
         smelterInUse = false;
     }
 
@@ -113,6 +159,7 @@ public class Smelter : MonoBehaviour
         if (smelterGuiOpen == true)
         {
             rawMetaltoMetalText.GetComponent<TextMeshProUGUI>().text = "( RawMetal: " + rawMetalCount.rawMetalCount + " / 1 )";
+            scrapMetaltoMetalText.GetComponent<TextMeshProUGUI>().text = "( ScrapMetal: " + scrapMetalCount.scrapMetalCount + " / 4 )";
         }
         else return;
     }

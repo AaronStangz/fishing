@@ -15,7 +15,22 @@ public class Collect : MonoBehaviour
     Inventory ropeCount;
     Inventory clayCount;
     Inventory brickCount;
+    Inventory clothCount;
 
+    Inventory maxMetalCount;
+    Inventory maxScrapMetalCount;
+    Inventory maxRawMetalCount;
+    Inventory maxWoodCount;
+    Inventory maxScrapWoodCount;
+    Inventory maxNailsCount;
+    Inventory maxPaperCount;
+    Inventory maxPlasticCount;
+    Inventory maxRopeCount;
+    Inventory maxClayCount;
+    Inventory maxBrickCount;
+    Inventory maxClothCount;
+
+    [SerializeField] private LayerMask Collectable;
     [Header("How Much To Give")]
     public int Metal;
     public int ScrapMetal;
@@ -28,6 +43,7 @@ public class Collect : MonoBehaviour
     public int Rope;
     public int Clay;
     public int Brick;
+    public int Cloth;
 
     GameObject player;
 
@@ -45,31 +61,90 @@ public class Collect : MonoBehaviour
         ropeCount = player.GetComponent<Inventory>();
         clayCount = player.GetComponent<Inventory>();
         brickCount = player.GetComponent<Inventory>();
+        clothCount = player.GetComponent<Inventory>();
+
+        maxMetalCount = player.GetComponent<Inventory>();
+        maxScrapMetalCount = player.GetComponent<Inventory>();
+        maxRawMetalCount = player.GetComponent<Inventory>();
+        maxWoodCount = player.GetComponent<Inventory>();
+        maxScrapWoodCount = player.GetComponent<Inventory>();
+        maxNailsCount = player.GetComponent<Inventory>();
+        maxPaperCount = player.GetComponent<Inventory>();
+        maxPlasticCount = player.GetComponent<Inventory>();
+        maxRopeCount = player.GetComponent<Inventory>();
+        maxClayCount = player.GetComponent<Inventory>();
+        maxBrickCount = player.GetComponent<Inventory>();
+        maxClothCount = player.GetComponent<Inventory>();
     }
 
-    void OnTriggerStay(Collider collision)
+    public void Update()
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (Camera.main == null) return;
+
+        RaycastHit hit;
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hit, 5.0f, Collectable))
         {
-            if(Input.GetKey(KeyCode.E))
-            { 
+            Debug.Log("Collectable");
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Debug.Log("Collected");
                 CollectItem();
+                Destroy(gameObject, 0.1f);
             }
         }
     }
 
     public void CollectItem()
     {
-        metalCount.metalCount += Metal;
-        scrapMetalCount.scrapMetalCount += ScrapMetal;
-        rawMetalCount.rawMetalCount += RawMetal;
-        woodCount.woodCount += Wood;
-        scrapWoodCount.scrapWoodCount += ScrapWood;
-        nailsCount.nailsCount += Nails;
-        paperCount.paperCount += Paper;
-        plasticCount.plasticCount += Plastic;
-        ropeCount.ropeCount += Rope;
-        clayCount.clayCount += Clay;
-        brickCount.brickCount += Brick;
+        if(metalCount.metalCount > maxMetalCount.maxMetalCount)
+        {
+            metalCount.metalCount += Metal;
+        }
+        if(scrapMetalCount.scrapMetalCount < maxScrapMetalCount.maxScrapMetalCount)
+        {
+            scrapMetalCount.scrapMetalCount += ScrapMetal;
+        }
+        if (rawMetalCount.rawMetalCount < maxRawMetalCount.rawMetalCount)
+        {
+            rawMetalCount.rawMetalCount += RawMetal;
+        }
+        if (woodCount.woodCount < maxWoodCount.maxWoodCount) 
+        {
+            woodCount.woodCount += Wood;
+        }
+        if (scrapMetalCount.scrapMetalCount < maxScrapMetalCount.maxScrapMetalCount)
+        {
+            scrapWoodCount.scrapWoodCount += ScrapWood;
+        }
+        if (nailsCount.nailsCount < maxNailsCount.maxNailsCount)
+        {
+            nailsCount.nailsCount += Nails;
+        }
+        if (paperCount.paperCount < maxPaperCount.maxPaperCount)
+        {
+            paperCount.paperCount += Paper;
+        }
+        if (plasticCount.plasticCount < maxPlasticCount.maxPlasticCount)
+        {
+            plasticCount.plasticCount += Plastic;
+        }
+        if (ropeCount.ropeCount < maxRopeCount.maxRopeCount)
+        {
+            ropeCount.ropeCount += Rope;
+        }
+        if (clayCount.clayCount < maxClayCount.maxClayCount)
+        {
+            clayCount.clayCount += Clay;
+        }
+        if (brickCount.brickCount < maxBrickCount.maxBrickCount)
+        {
+            brickCount.brickCount += Brick;
+        }
+        if (clothCount.clothCount < maxClothCount.maxClothCount)
+        {
+            clothCount.clothCount += Cloth;
+        }
     }
 }
