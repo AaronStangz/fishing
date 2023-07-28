@@ -11,6 +11,7 @@ TagManager:
   - HarpoonableFish
   - Buildable
   - Smelter
+  - Moveable
   layers:
   - Default
   - TransparentFX

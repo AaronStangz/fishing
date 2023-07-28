@@ -98,7 +98,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: 4567ffd1521c3774c85f958e0202b506, type: 3}
 --- !u!1 &4306159869178374977
@@ -592,9 +592,10 @@ GameObject:
   - component: {fileID: 4306159870304688847}
   - component: {fileID: 4306159870304688846}
   - component: {fileID: 6194740099927219206}
+  - component: {fileID: -7174377331309319566}
   m_Layer: 10
   m_Name: Smelter
-  m_TagString: Smelter
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -653,6 +654,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-7174377331309319566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4306159870304688841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2faec484ce450614fab5ff19dad3dea9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  underWaterDrag: 10
+  underWaterAngularDrag: 10
+  airDrag: 0
+  airAngularDrag: 1
+  floatingPower: 4000
+  waterHeight: 1.5
+  underwater: 0
 --- !u!1 &4306159870489214496
 GameObject:
   m_ObjectHideFlags: 0

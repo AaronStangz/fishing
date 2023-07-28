@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4431998273653726829}
   - component: {fileID: -2939444124701896372}
+  - component: {fileID: 250918605125377821}
   m_Layer: 3
   m_Name: Table
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,6 +50,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &250918605125377821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4431998273653726826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2faec484ce450614fab5ff19dad3dea9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  underWaterDrag: 10
+  underWaterAngularDrag: 10
+  airDrag: 0
+  airAngularDrag: 1
+  floatingPower: 4000
+  waterHeight: 1.5
+  underwater: 0
 --- !u!1001 &4431998273872626488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69,7 +89,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 0c80a2e239af9db41920876a9a2b4f93,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.35714287
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0c80a2e239af9db41920876a9a2b4f93,
         type: 3}

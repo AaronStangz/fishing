@@ -4284,6 +4284,7 @@ GameObject:
   - component: {fileID: 8451947470042604198}
   - component: {fileID: 8451947470042604196}
   - component: {fileID: 8451947470042604201}
+  - component: {fileID: -6348645926903052872}
   m_Layer: 3
   m_Name: CraftingBench
   m_TagString: Untagged
@@ -4366,3 +4367,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   CraftGuiOpen: 0
+--- !u!114 &-6348645926903052872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9079408431304472604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2faec484ce450614fab5ff19dad3dea9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  underWaterDrag: 10
+  underWaterAngularDrag: 10
+  airDrag: 0
+  airAngularDrag: 1
+  floatingPower: 5000
+  waterHeight: 1.5
+  underwater: 0

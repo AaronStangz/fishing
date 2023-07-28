@@ -7212,7 +7212,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &826732807
 Transform:
   m_ObjectHideFlags: 0
@@ -10192,7 +10192,7 @@ PrefabInstance:
     - target: {fileID: 3734790429542607203, guid: 929277ed3219bb241be32832848b3840,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3734790429542607203, guid: 929277ed3219bb241be32832848b3840,
         type: 3}
@@ -12450,7 +12450,7 @@ PrefabInstance:
     - target: {fileID: 3734790429542607203, guid: 929277ed3219bb241be32832848b3840,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3734790429542607203, guid: 929277ed3219bb241be32832848b3840,
         type: 3}
@@ -14273,7 +14273,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2016775958
 GameObject:
@@ -15457,7 +15457,7 @@ GameObject:
   - component: {fileID: 5261033075646823897}
   m_Layer: 3
   m_Name: CraftingBench
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15476,7 +15476,7 @@ GameObject:
   - component: {fileID: 328207209972502573}
   m_Layer: 9
   m_Name: Table
-  m_TagString: Untagged
+  m_TagString: Moveable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15520,8 +15520,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4776385274604300141}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.17, y: 5.62, z: -6.29}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000012218951}
+  m_LocalPosition: {x: -14.914, y: 4.898, z: -1.6662143}
   m_LocalScale: {x: 0.63761, y: 0.63761, z: 0.63761}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15529,8 +15529,8 @@ Transform:
   - {fileID: 9039664703260812978}
   - {fileID: 8637041072507517957}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!114 &5261033075646823896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15917,7 +15917,6 @@ GameObject:
   - component: {fileID: 6986182232180598093}
   - component: {fileID: 6986182232180598094}
   - component: {fileID: 6986182232180598095}
-  - component: {fileID: 6986182232180598098}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -16068,47 +16067,6 @@ MonoBehaviour:
   hamerItemHoldable: {fileID: 826732806}
   hamerGUI: {fileID: 1769619492}
   InvOpen: 0
---- !u!114 &6986182232180598098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6986182232180598088}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d49a1c1fc723d674c998563c2a56bcca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FloorPrefab: {fileID: 0}
-  WallPrefab: {fileID: 875970570305038002, guid: 9e16d8522123f9a4cb7b602ddb487fd1,
-    type: 3}
-  WallDoorPrefab: {fileID: 0}
-  WallWindowPrefab: {fileID: 0}
-  FencePrefab: {fileID: 0}
-  GhostFloorPrefab: {fileID: 0}
-  GhostWallPrefab: {fileID: 3692511706790112442, guid: 5fd0aa4b078645b42878070f21936a42,
-    type: 3}
-  GhostWallDoorPrefab: {fileID: 0}
-  GhostWallWindowPrefab: {fileID: 0}
-  GhostFencePrefab: {fileID: 0}
-  HitboxFloorPrefab: {fileID: 0}
-  HitboxWallPrefab: {fileID: 0}
-  HitboxWallDoorPrefab: {fileID: 0}
-  HitboxWallWindowPrefab: {fileID: 0}
-  HitboxFencePrefab: {fileID: 0}
-  targetPrefab: {fileID: 0}
-  targetGhostPrefab: {fileID: 0}
-  targetHitboxPrefab: {fileID: 0}
-  spawnedGhost: {fileID: 0}
-  rotation: 0
-  FacingObject: {fileID: 6986182232966759431}
-  GhostValid: {fileID: 2100000, guid: 352114084950a70418f5d489f13b3f2b, type: 2}
-  GhostInvalid: {fileID: 2100000, guid: 3c34273108e45bc4999875a9f7f59a6b, type: 2}
-  woodStored: 0
-  woodPrice: 0
-  inBuildMenu: 0
-  BuildMenu: {fileID: 0}
 --- !u!1 &6986182232949776180
 GameObject:
   m_ObjectHideFlags: 0
@@ -16153,6 +16111,7 @@ GameObject:
   - component: {fileID: 6986182232966759435}
   - component: {fileID: 6986182232966759430}
   - component: {fileID: 6986182232966759436}
+  - component: {fileID: 6986182232966759437}
   m_Layer: 6
   m_Name: Camera
   m_TagString: MainCamera
@@ -16367,6 +16326,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 100
   playerBody: {fileID: 6986182232180598092}
+--- !u!114 &6986182232966759437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6986182232966759428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d034db6edde8c754a9166d5daec3fb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickUpRange: 5
+  moveForce: 250
+  holdParent: {fileID: 6986182232949776183}
+  icon: {fileID: 1769619492}
+  harpoon: {fileID: 668743602}
+  hamer: {fileID: 826732806}
 --- !u!23 &7002850643083557338
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17017,7 +16994,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8637041072507517957
 Transform:
   m_ObjectHideFlags: 0
@@ -18472,7 +18449,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4973147460432898136}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -2.7446244, y: 0, z: 7.4496946}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
