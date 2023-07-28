@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3557295653028229732}
   - component: {fileID: 3557295653028229731}
   - component: {fileID: 634125673278540223}
+  - component: {fileID: 3258977540383858079}
   m_Layer: 11
   m_Name: Plastic
   m_TagString: HarpoonableObject
@@ -77,6 +78,7 @@ MonoBehaviour:
   Rope: 0
   Clay: 0
   Brick: 0
+  Cloth: 0
 --- !u!114 &634125673278540223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,6 +93,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrashSpeed: 5
   despawnTime: 60
+--- !u!114 &3258977540383858079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3557295653028229730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2faec484ce450614fab5ff19dad3dea9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  underWaterDrag: 3
+  underWaterAngularDrag: 1
+  airDrag: 0
+  airAngularDrag: 0.05
+  floatingPower: 50
+  waterHeight: 0.6
+  underwater: 0
 --- !u!1001 &3557295653155944158
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -111,7 +132,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 160c023e1cbedad43bf59cf2a6f677a3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 160c023e1cbedad43bf59cf2a6f677a3,
         type: 3}

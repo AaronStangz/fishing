@@ -60,7 +60,6 @@ public class Harpoon : MonoBehaviour
         }
         if (Input.GetKey(HarpoonKeyTake))
         {
-            print("KeyPrest");
             BringIn();
         }
         DragObject();
@@ -100,20 +99,20 @@ public class Harpoon : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(cam.position, cam.forward, out hit, maxHarpoonDist, whatIsHarpoonable))
         {
-            if (hit.transform.CompareTag("HarpoonableObject"))
+            if (hit.transform.CompareTag("HarpoonableFish"))
+            {
+                print("HitFish");
+                FishCollect(hit.transform.gameObject);
+            }
+
+            else if (hit.transform.CompareTag("HarpoonableObject"))
             {
                 print("HitObject");
                 objectHit = hit.transform.gameObject;
                 dragDist = Vector3.Distance(objectHit.transform.position, transform.position);
             }
 
-            if (hit.transform.CompareTag("HarpoonableFish"))
-            {
-                print("HitFish");
-                FishCollect();
-            }
-
-                harpoonPoint = hit.point;
+            harpoonPoint = hit.point;
             harpooning = true;
         }
         else
@@ -186,9 +185,11 @@ public class Harpoon : MonoBehaviour
         }
     }
 
-    private void FishCollect()
+    private void FishCollect(GameObject fish)
     {
-        Destroy(objectHit);
+        fish.GetComponent<Collect>().CollectItem();
+        print("collectedFish");
+        Destroy(fish);
         StopHarpoon();
     }
 
@@ -205,7 +206,6 @@ public class Harpoon : MonoBehaviour
 
     private void StopHarpoon()
     {
-        
         harpooning = false;
 
         objectHit = null;
