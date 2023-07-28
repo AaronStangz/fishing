@@ -7206,7 +7206,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 826732807}
-  - component: {fileID: 826732808}
   m_Layer: 6
   m_Name: Hamer
   m_TagString: Untagged
@@ -7232,44 +7231,6 @@ Transform:
   m_Father: {fileID: 7498774418341062067}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &826732808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 826732806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ec73632d95737049ba6e7a61c349b16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FloorPrefab: {fileID: 854105959735724306, guid: ccdda963e0c3d864086b9501e960fc0b,
-    type: 3}
-  WallPrefab: {fileID: 854105959735724306, guid: d7a8e0c9f0da0704dae5d88cd03dc783,
-    type: 3}
-  WallDoorPrefab: {fileID: 0}
-  WallWindowPrefab: {fileID: 0}
-  FencePrefab: {fileID: 0}
-  GhostFloorPrefab: {fileID: 854105959735724306, guid: 805f09a0112c67744988f2e4c68394d4,
-    type: 3}
-  GhostWallPrefab: {fileID: 854105959735724306, guid: 3e2b8b7bb5be0a44f8469ca32746bb36,
-    type: 3}
-  GhostWallDoorPrefab: {fileID: 0}
-  GhostWallWindowPrefab: {fileID: 0}
-  GhostFencePrefab: {fileID: 0}
-  HitboxFloorPrefab: {fileID: 854105959735724306, guid: 5827d1089ebefa34e8d73098417d7c66,
-    type: 3}
-  HitboxWallPrefab: {fileID: 854105959735724306, guid: db1b5b14042e10f4abf21dce05713648,
-    type: 3}
-  HitboxWallDoorPrefab: {fileID: 0}
-  HitboxWallWindowPrefab: {fileID: 0}
-  HitboxFencePrefab: {fileID: 0}
-  FacingObject: {fileID: 6986182232966759431}
-  GhostValid: {fileID: 2100000, guid: c92584dd5febeba44971b2ba96b8bc84, type: 2}
-  GhostInvalid: {fileID: 2100000, guid: c480e15b8dc8c97428074b77d99b29e7, type: 2}
-  BuildMenu: {fileID: 1769619492}
-  CrossHairs: {fileID: 113549601}
 --- !u!1 &839303399
 GameObject:
   m_ObjectHideFlags: 0
@@ -7787,7 +7748,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 826732808}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BuildMechanic, Assembly-CSharp
         m_MethodName: SetTargetBuildFloor
         m_Mode: 1
