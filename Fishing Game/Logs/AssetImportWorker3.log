@@ -635,3 +635,94 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006568 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\aaron\Documents\GitHub\fishing\Fishing Game\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\aaron\Documents\GitHub\fishing\Fishing Game\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.15 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.181 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1181ms)
+		BeginReloadAssembly (123ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (40ms)
+		EndReloadAssembly (972ms)
+			LoadAssemblies (77ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (332ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (98ms)
+			SetupLoadedEditorAssemblies (349ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (9ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (77ms)
+				ProcessInitializeOnLoadAttributes (232ms)
+				ProcessInitializeOnLoadMethodAttributes (25ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (14ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 2.61 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5990 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 44 unused Assets / (3.4 MB). Loaded Objects now: 7223.
+Memory consumption went from 274.1 MB to 270.7 MB.
+Total: 4.995800 ms (FindLiveObjects: 0.483200 ms CreateObjectMapping: 0.409600 ms MarkObjects: 3.532100 ms  DeleteObjects: 0.570100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 2722.346534 seconds.
+  path: Assets/BuildSystem/Ghost Invalid.mat
+  artifactKey: Guid(c480e15b8dc8c97428074b77d99b29e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildSystem/Ghost Invalid.mat using Guid(c480e15b8dc8c97428074b77d99b29e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d7abda34a2a840248dd9cfcf4cece0f') in 1.071167 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.842248 seconds.
+  path: Assets/BuildSystem/Prefabs/Wall_Window.prefab
+  artifactKey: Guid(13be2c690376906419e3b889b855aca9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildSystem/Prefabs/Wall_Window.prefab using Guid(13be2c690376906419e3b889b855aca9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf99431ffee2fd0a5b06f7357566e75e') in 0.043581 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.079133 seconds.
+  path: Assets/BuildSystem/Prefabs/BasePrefabs/Fence.prefab
+  artifactKey: Guid(42892e059edb80f448639f47e5ea4c5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildSystem/Prefabs/BasePrefabs/Fence.prefab using Guid(42892e059edb80f448639f47e5ea4c5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03b7f978185283b5b47dd98112c724d3') in 0.025034 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/BuildSystem/Prefabs/BasePrefabs/Floor.prefab
+  artifactKey: Guid(ccdda963e0c3d864086b9501e960fc0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildSystem/Prefabs/BasePrefabs/Floor.prefab using Guid(ccdda963e0c3d864086b9501e960fc0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '744814e68ab94f055e9796bbca6359cd') in 0.039786 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/BuildSystem/Prefabs/BasePrefabs/Staircase.prefab
+  artifactKey: Guid(eda42a3f17a2664478e41fcc787de641) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BuildSystem/Prefabs/BasePrefabs/Staircase.prefab using Guid(eda42a3f17a2664478e41fcc787de641) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '153abd7ab133120fe1e952556aff4e06') in 0.029924 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

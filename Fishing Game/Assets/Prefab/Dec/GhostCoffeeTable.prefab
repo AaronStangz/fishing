@@ -217,4 +217,4 @@ MonoBehaviour:
   prefab: {fileID: 1704454529481375620, guid: 1b5f586da9dc9ad4491aef93e71fc386, type: 3}
   layerMask:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 256

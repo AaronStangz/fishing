@@ -282,7 +282,7 @@ public class Inventory : MonoBehaviour
     {
         ForceEscape();
         Debug.Log("HoldingHamer");
-        hamerItemHoldable.SetActive(false);
+        hamerItemHoldable.SetActive(true);
         hamerGUI.SetActive(false);
     }
     void Escape()
