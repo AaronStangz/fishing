@@ -24,27 +24,36 @@ public class BuildMechanic : MonoBehaviour
     private const float FloorCastDownRange = 2.05f;
     [Header("Build Prefabs")]
     public GameObject FloorPrefab;
+    public GameObject LStairsPrefab;
     public GameObject StairsPrefab;
     public GameObject WallPrefab;
     public GameObject WallDoorPrefab;
     public GameObject WallWindowPrefab;
     public GameObject FencePrefab;
+    public GameObject HalfWallPrefab;
+    public GameObject HalfWallDivitPrefab;
 
     [Header("Ghost Prefabs")]
     public GameObject GhostFloorPrefab;
+    public GameObject GhostLStairsPrefab;
     public GameObject GhostStairsPrefab;
     public GameObject GhostWallPrefab;
     public GameObject GhostWallDoorPrefab;
     public GameObject GhostWallWindowPrefab;
     public GameObject GhostFencePrefab;
+    public GameObject GhostHalfWallPrefab;
+    public GameObject GhostHalfWallDivitPrefab;
 
     [Header("Hitbox Prefabs")]
     public GameObject HitboxFloorPrefab;
+    public GameObject HitboxLStairsPrefab;
     public GameObject HitboxStairsPrefab;
     public GameObject HitboxWallPrefab;
     public GameObject HitboxWallDoorPrefab;
     public GameObject HitboxWallWindowPrefab;
     public GameObject HitboxFencePrefab;
+    public GameObject HitboxHalfWallPrefab;
+    public GameObject HitboxHalfWallDivitPrefab;
 
     public GameObject[] CanBeRotatedPrefabs;
 
@@ -377,6 +386,11 @@ public class BuildMechanic : MonoBehaviour
         SetTargetBuild(FloorPrefab, GhostFloorPrefab, HitboxFloorPrefab, 10, 10, 0);
         CloseBuildMenu();
     }
+    public void SetTargetBuildLStairs()
+    {
+        SetTargetBuild(LStairsPrefab, GhostLStairsPrefab, HitboxLStairsPrefab, 12, 12, 0);
+        CloseBuildMenu();
+    }
     public void SetTargetBuildStairs()
     {
         SetTargetBuild(StairsPrefab, GhostStairsPrefab, HitboxStairsPrefab, 12, 12, 0);
@@ -404,6 +418,16 @@ public class BuildMechanic : MonoBehaviour
     public void SetTargetBuildWindow()
     {
         SetTargetBuild(WallWindowPrefab, GhostWallWindowPrefab, HitboxWallWindowPrefab, 6, 4, 0);
+        CloseBuildMenu();
+    }
+    public void SetTargetBuildHalfWall()
+    {
+        SetTargetBuild(HalfWallPrefab, GhostHalfWallPrefab, HitboxHalfWallPrefab, 4, 4, 0);
+        CloseBuildMenu();
+    }
+    public void SetTargetBuildHalfDivitWall()
+    {
+        SetTargetBuild(HalfWallDivitPrefab, GhostHalfWallDivitPrefab, HitboxHalfWallDivitPrefab, 2, 4, 0);
         CloseBuildMenu();
     }
 
