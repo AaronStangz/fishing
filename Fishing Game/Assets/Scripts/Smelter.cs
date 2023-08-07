@@ -7,38 +7,16 @@ using UnityEditor.Timeline.Actions;
 
 public class Smelter : MonoBehaviour
 {
-    Inventory metalCount;
-    Inventory scrapMetalCount;
-    Inventory rawMetalCount;
-    Inventory woodCount;
-    Inventory scrapWoodCount;
-    Inventory nailsCount;
-    Inventory paperCount;
-    Inventory plasticCount;
-    Inventory ropeCount;
-    Inventory clayCount;
-    Inventory brickCount;
-    Inventory clothCount;
-
-    Inventory maxMetalCount;
-    Inventory maxScrapMetalCount;
-    Inventory maxRawMetalCount;
-    Inventory maxWoodCount;
-    Inventory maxScrapWoodCount;
-    Inventory maxNailsCount;
-    Inventory maxPaperCount;
-    Inventory maxPlasticCount;
-    Inventory maxRopeCount;
-    Inventory maxClayCount;
-    Inventory maxBrickCount;
-    Inventory maxClothCount;
-
-    Inventory InvOpen;
     GameObject player;
+    Inventory inventory;
 
     public Slider Slider;
+    public Slider WoodLevelSlider;
+    public GameObject woodGui;
     float timer;
     float targetTimer;
+    public float maxWoodLevel = 4;
+    float woodLevel;
 
     bool smelterInUse = false;
 
@@ -56,31 +34,7 @@ public class Smelter : MonoBehaviour
     {
         player = GameObject.Find("Player");
         smelterGuiOpen = false;
-        metalCount = player.GetComponent<Inventory>();
-        scrapMetalCount = player.GetComponent<Inventory>();
-        rawMetalCount = player.GetComponent<Inventory>();
-        woodCount = player.GetComponent<Inventory>();
-        scrapWoodCount = player.GetComponent<Inventory>();
-        nailsCount = player.GetComponent<Inventory>();
-        paperCount = player.GetComponent<Inventory>();
-        plasticCount = player.GetComponent<Inventory>();
-        ropeCount = player.GetComponent<Inventory>();
-        clayCount = player.GetComponent<Inventory>();
-        brickCount = player.GetComponent<Inventory>();
-        clothCount = player.GetComponent<Inventory>();
-
-        maxMetalCount = player.GetComponent<Inventory>();
-        maxScrapMetalCount = player.GetComponent<Inventory>();
-        maxRawMetalCount = player.GetComponent<Inventory>();
-        maxWoodCount = player.GetComponent<Inventory>();
-        maxScrapWoodCount = player.GetComponent<Inventory>();
-        maxNailsCount = player.GetComponent<Inventory>();
-        maxPaperCount = player.GetComponent<Inventory>();
-        maxPlasticCount = player.GetComponent<Inventory>();
-        maxRopeCount = player.GetComponent<Inventory>();
-        maxClayCount = player.GetComponent<Inventory>();
-        maxBrickCount = player.GetComponent<Inventory>();
-        maxClothCount = player.GetComponent<Inventory>();
+        inventory = player.GetComponent<Inventory>();
     }
 
     
@@ -91,7 +45,19 @@ public class Smelter : MonoBehaviour
         if (smelterGuiOpen == true)
         {
             Cursor.lockState = CursorLockMode.None;
+            WoodLevelSlider.value = woodLevel;
+            inventory.HarpoonHolding = false;
+            inventory.HamerHolding = false;
+            inventory.WoodHolding = false;
             Escape();
+        }
+        if(woodLevel <= maxWoodLevel)
+        {
+            woodGui.SetActive(false);
+        }
+        if(inventory.WoodHolding == false) 
+        {
+            woodGui.SetActive(false);
         }
 
         if (Camera.main == null) return;
@@ -101,14 +67,29 @@ public class Smelter : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, 5.0f, SmelterLayer) && smelterGuiOpen == false)
         {
-            Debug.Log("Smelter");
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && inventory.WoodHolding == false)
             {
                 //camScrpit.enabled = false;
                 smelterGui.SetActive(true);
                 Debug.Log("OpeningSmelter");
                 smelterGuiOpen = true;
+
             }
+            if (Input.GetKeyDown(KeyCode.E) && inventory.WoodHolding == true)
+            {
+                
+                if (inventory.scrapWoodCount >= 1 && woodLevel <= maxWoodLevel) 
+                {
+                    Debug.Log("AddWood");
+                    inventory.scrapWoodCount -= 1;
+                    woodLevel += 1;
+                }
+            }
+            if(inventory.WoodHolding == true && woodLevel <= maxWoodLevel)
+            {
+                woodGui.SetActive(true);
+            }
+          
         }
 
         timer += Time.deltaTime;
@@ -120,9 +101,10 @@ public class Smelter : MonoBehaviour
 
     public void RawMetalToMetal()
     {
-        if (rawMetalCount.rawMetalCount >= 1 && metalCount.metalCount < maxMetalCount.maxMetalCount && smelterInUse == false)
+        if (inventory.rawMetalCount >= 1 && inventory.metalCount < inventory.maxMetalCount && smelterInUse == false && woodLevel >= 1)
         {
-            rawMetalCount.rawMetalCount -= 1;
+            inventory.rawMetalCount -= 1;
+            woodLevel -= 1;
             StartCoroutine(RawMetalToMetalIE());
             targetTimer = metalSmeltingTime;
             smelterInUse = true;
@@ -133,14 +115,15 @@ public class Smelter : MonoBehaviour
     IEnumerator RawMetalToMetalIE()
     {
         yield return new WaitForSeconds(metalSmeltingTime);
-        metalCount.metalCount += 1;
+        inventory.metalCount += 1;
         smelterInUse = false;
     }
     public void ScrapMetalToMetal()
     {
-        if (scrapMetalCount.scrapMetalCount >= 4 && metalCount.metalCount < maxMetalCount.maxMetalCount && smelterInUse == false)
+        if (inventory.scrapMetalCount >= 4 && inventory.metalCount < inventory.maxMetalCount && smelterInUse == false && woodLevel >= 1)
         {
-            scrapMetalCount.scrapMetalCount -= 4;
+            inventory.scrapMetalCount -= 4;
+            woodLevel -= 1;
             StartCoroutine(ScrapMetalToMetalIE());
             targetTimer = metalSmeltingTime;
             smelterInUse = true;
@@ -150,7 +133,7 @@ public class Smelter : MonoBehaviour
     IEnumerator ScrapMetalToMetalIE()
     {
         yield return new WaitForSeconds(metalSmeltingTime);
-        metalCount.metalCount += 2;
+        inventory.metalCount += 2;
         smelterInUse = false;
     }
 
@@ -158,8 +141,8 @@ public class Smelter : MonoBehaviour
     {
         if (smelterGuiOpen == true)
         {
-            rawMetaltoMetalText.GetComponent<TextMeshProUGUI>().text = "( RawMetal: " + rawMetalCount.rawMetalCount + " / 1 )";
-            scrapMetaltoMetalText.GetComponent<TextMeshProUGUI>().text = "( ScrapMetal: " + scrapMetalCount.scrapMetalCount + " / 4 )";
+            rawMetaltoMetalText.GetComponent<TextMeshProUGUI>().text = "( RawMetal: " + inventory.rawMetalCount + " / 1 )";
+            scrapMetaltoMetalText.GetComponent<TextMeshProUGUI>().text = "( ScrapMetal: " + inventory.scrapMetalCount + " / 4 )";
         }
         else return;
     }

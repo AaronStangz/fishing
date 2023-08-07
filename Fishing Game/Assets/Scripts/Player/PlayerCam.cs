@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerCam : MonoBehaviour
 {
     public float mouseSensitivity = 100f;
+    public float initialMouseSensitivity;
+
+    public bool IsGuiOpen;
 
     public Transform playerBody;
 
@@ -13,13 +16,22 @@ public class PlayerCam : MonoBehaviour
 
     void Start()
     {
+        initialMouseSensitivity = mouseSensitivity;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+       // if (IsGuiOpen == true)
+       // {
+            float mouseX = Input.GetAxis("Mouse X") * initialMouseSensitivity * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * initialMouseSensitivity * Time.deltaTime;
+       // }
+//else
+       // {
+       //     float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        //    float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;   
+       // }
 
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);

@@ -178,7 +178,7 @@ MonoBehaviour:
   Paper: 0
   Plastic: 0
   Rope: 0
-  Clay: 1
+  Clay: 2
   Brick: 0
   Cloth: 3
 --- !u!114 &5964846356344691751

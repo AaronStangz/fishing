@@ -4,32 +4,6 @@ using UnityEngine;
 
 public class Collect : MonoBehaviour
 {
-    Inventory metalCount;
-    Inventory scrapMetalCount;
-    Inventory rawMetalCount;
-    Inventory woodCount;
-    Inventory scrapWoodCount;
-    Inventory nailsCount;
-    Inventory paperCount;
-    Inventory plasticCount;
-    Inventory ropeCount;
-    Inventory clayCount;
-    Inventory brickCount;
-    Inventory clothCount;
-
-    Inventory maxMetalCount;
-    Inventory maxScrapMetalCount;
-    Inventory maxRawMetalCount;
-    Inventory maxWoodCount;
-    Inventory maxScrapWoodCount;
-    Inventory maxNailsCount;
-    Inventory maxPaperCount;
-    Inventory maxPlasticCount;
-    Inventory maxRopeCount;
-    Inventory maxClayCount;
-    Inventory maxBrickCount;
-    Inventory maxClothCount;
-
     [SerializeField] private LayerMask Collectable;
     [Header("How Much To Give")]
     public int Metal;
@@ -46,35 +20,14 @@ public class Collect : MonoBehaviour
     public int Cloth;
 
     GameObject player;
+    Inventory inventory;
+
+    public float pickUpRage = 5f;
 
     void Start()
     {
         player = GameObject.Find("Player");
-        metalCount = player.GetComponent<Inventory>();
-        scrapMetalCount = player.GetComponent<Inventory>();
-        rawMetalCount = player.GetComponent<Inventory>();
-        woodCount = player.GetComponent<Inventory>();
-        scrapWoodCount = player.GetComponent<Inventory>();
-        nailsCount = player.GetComponent<Inventory>();
-        paperCount = player.GetComponent<Inventory>();
-        plasticCount = player.GetComponent<Inventory>();
-        ropeCount = player.GetComponent<Inventory>();
-        clayCount = player.GetComponent<Inventory>();
-        brickCount = player.GetComponent<Inventory>();
-        clothCount = player.GetComponent<Inventory>();
-
-        maxMetalCount = player.GetComponent<Inventory>();
-        maxScrapMetalCount = player.GetComponent<Inventory>();
-        maxRawMetalCount = player.GetComponent<Inventory>();
-        maxWoodCount = player.GetComponent<Inventory>();
-        maxScrapWoodCount = player.GetComponent<Inventory>();
-        maxNailsCount = player.GetComponent<Inventory>();
-        maxPaperCount = player.GetComponent<Inventory>();
-        maxPlasticCount = player.GetComponent<Inventory>();
-        maxRopeCount = player.GetComponent<Inventory>();
-        maxClayCount = player.GetComponent<Inventory>();
-        maxBrickCount = player.GetComponent<Inventory>();
-        maxClothCount = player.GetComponent<Inventory>();
+        inventory = player.GetComponent<Inventory>();
     }
 
     public void Update()
@@ -84,67 +37,67 @@ public class Collect : MonoBehaviour
         RaycastHit hit;
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit, 5.0f, Collectable))
+        if (Physics.Raycast(ray, out hit, pickUpRage, Collectable))
         {
             Debug.Log("Collectable");
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Debug.Log("Collected");
                 CollectItem();
-                Destroy(gameObject, 0.1f);
+                Destroy(hit.transform.gameObject);
             }
         }
     }
 
     public void CollectItem()
     {
-        if(metalCount.metalCount > maxMetalCount.maxMetalCount)
+        if(inventory.metalCount > inventory.maxMetalCount)
         {
-            metalCount.metalCount += Metal;
+            inventory.metalCount += Metal;
         }
-        if(scrapMetalCount.scrapMetalCount < maxScrapMetalCount.maxScrapMetalCount)
+        if(inventory.scrapMetalCount < inventory.maxScrapMetalCount)
         {
-            scrapMetalCount.scrapMetalCount += ScrapMetal;
+            inventory.scrapMetalCount += ScrapMetal;
         }
-        if (rawMetalCount.rawMetalCount < maxRawMetalCount.rawMetalCount)
+        if (inventory.rawMetalCount < inventory.maxRawMetalCount)
         {
-            rawMetalCount.rawMetalCount += RawMetal;
+            inventory.rawMetalCount += RawMetal;
         }
-        if (woodCount.woodCount < maxWoodCount.maxWoodCount) 
+        if (inventory.woodCount < inventory.maxWoodCount) 
         {
-            woodCount.woodCount += Wood;
+            inventory.woodCount += Wood;
         }
-        if (scrapMetalCount.scrapMetalCount < maxScrapMetalCount.maxScrapMetalCount)
+        if (inventory.scrapMetalCount < inventory.maxScrapMetalCount)
         {
-            scrapWoodCount.scrapWoodCount += ScrapWood;
+            inventory.scrapWoodCount += ScrapWood;
         }
-        if (nailsCount.nailsCount < maxNailsCount.maxNailsCount)
+        if (inventory.nailsCount < inventory.maxNailsCount)
         {
-            nailsCount.nailsCount += Nails;
+            inventory.nailsCount += Nails;
         }
-        if (paperCount.paperCount < maxPaperCount.maxPaperCount)
+        if (inventory.paperCount < inventory.maxPaperCount)
         {
-            paperCount.paperCount += Paper;
+            inventory.paperCount += Paper;
         }
-        if (plasticCount.plasticCount < maxPlasticCount.maxPlasticCount)
+        if (inventory.plasticCount < inventory.maxPlasticCount)
         {
-            plasticCount.plasticCount += Plastic;
+            inventory.plasticCount += Plastic;
         }
-        if (ropeCount.ropeCount < maxRopeCount.maxRopeCount)
+        if (inventory.ropeCount < inventory.maxRopeCount)
         {
-            ropeCount.ropeCount += Rope;
+            inventory.ropeCount += Rope;
         }
-        if (clayCount.clayCount < maxClayCount.maxClayCount)
+        if (inventory.clayCount < inventory.maxClayCount)
         {
-            clayCount.clayCount += Clay;
+            inventory.clayCount += Clay;
         }
-        if (brickCount.brickCount < maxBrickCount.maxBrickCount)
+        if (inventory.brickCount < inventory.maxBrickCount)
         {
-            brickCount.brickCount += Brick;
+            inventory.brickCount += Brick;
         }
-        if (clothCount.clothCount < maxClothCount.maxClothCount)
+        if (inventory.clothCount < inventory.maxClothCount)
         {
-            clothCount.clothCount += Cloth;
+            inventory.clothCount += Cloth;
         }
     }
 }

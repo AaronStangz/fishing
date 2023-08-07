@@ -80,20 +80,25 @@ public class Inventory : MonoBehaviour
     public GameObject harpoonGUI;
     public GameObject hamerItemHoldable;
     public GameObject hamerGUI;
+    public GameObject woodItemHoldable;
 
     private PlayerMovement Move;
+    BuildMechanic buildMechanic;
     public bool InvOpen = false;
+    public bool WoodHolding = false;
+    public bool HarpoonHolding = false;
+    public bool HamerHolding = false;
 
     void Start()
     {
         InvOpen = false;
+        WoodHolding = false;
     }
 
     void Update()
     {
         Escape();
         TextUpdate();
-
         if (Input.GetKeyDown(KeyCode.I))
         {
             InvOpen = true;
@@ -103,19 +108,55 @@ public class Inventory : MonoBehaviour
             InvOpen = true;
         }
 
+        if (Input.GetKeyDown(KeyCode.Escape) && HarpoonHolding)
+        {
+            harpoonItemHoldable.SetActive(false);
+            harpoonGUI.SetActive(false);
+            HarpoonHolding = false;
+        }
+        if (Input.GetKeyDown(KeyCode.Escape) && HamerHolding && buildMechanic.BuildMenu == false)
+        {
+            hamerItemHoldable.SetActive(false);
+            hamerGUI.SetActive(false);
+            HamerHolding = false;
+        }
+        if (Input.GetKeyDown(KeyCode.Escape) && WoodHolding)
+        {
+            woodItemHoldable.SetActive(false);
+            WoodHolding = false;
+        }
+
+        if (HarpoonHolding == false)
+        {
+            harpoonItemHoldable.SetActive(false);
+            harpoonGUI.SetActive(false);
+        }
+        if (HamerHolding == false)
+        {
+            hamerItemHoldable.SetActive(false);
+            hamerGUI.SetActive(false);
+        }
+        if (WoodHolding == false)
+        {
+            woodItemHoldable.SetActive(false); 
+        }
+
         if (InvOpen == true)
         {
             //Move.enabled = false;
-            harpoonItemHoldable.SetActive(false);
-            harpoonGUI.SetActive(false);
-            hamerItemHoldable.SetActive(false);
-            hamerGUI.SetActive(false);
+            HarpoonHolding = false;
+            HamerHolding = false;
+            WoodHolding = false;
 
             camScrpit.enabled = false;
             Inv.SetActive(true);
             InvCam.SetActive(true);
             PlayerCam.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
+        }
+        if(woodCount == 0)
+        {
+            WoodHolding = false;
         }
     }
 
@@ -277,6 +318,7 @@ public class Inventory : MonoBehaviour
         Debug.Log("HoldingHarpoon");
         harpoonItemHoldable.SetActive(true);
         harpoonGUI.SetActive(true);
+        HarpoonHolding = true;
     }
     public void HoldHamer()
     {
@@ -284,12 +326,21 @@ public class Inventory : MonoBehaviour
         Debug.Log("HoldingHamer");
         hamerItemHoldable.SetActive(true);
         hamerGUI.SetActive(false);
+        HamerHolding = true;
+    }
+    public void HoldWood()
+    {
+        ForceEscape();
+        Debug.Log("HoldingWood");
+        woodItemHoldable.SetActive(true);
+        WoodHolding = true;
     }
     void Escape()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && InvOpen == true)
         {
             ForceEscape();
+            WoodHolding = false;
         }
     }
 

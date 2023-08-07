@@ -7,19 +7,6 @@ using UnityEditor.Timeline.Actions;
 
 public class BuildMechanic : MonoBehaviour
 {
-    Inventory metalCount;
-    Inventory scrapMetalCount;
-    Inventory rawMetalCount;
-    Inventory woodCount;
-    Inventory scrapWoodCount;
-    Inventory nailsCount;
-    Inventory paperCount;
-    Inventory plasticCount;
-    Inventory ropeCount;
-    Inventory clayCount;
-    Inventory brickCount;
-    Inventory clothCount;
-
     private const float MaxRange = 10000000;
     private const float FloorCastDownRange = 2.05f;
     [Header("Build Prefabs")]
@@ -73,6 +60,8 @@ public class BuildMechanic : MonoBehaviour
     private int woodPrice;
     private int nailsPrice;
     private int metalPrice;
+    private int ropePrice;
+    private int clothPrice;
 
     bool inBuildMenu = false;
 
@@ -82,7 +71,8 @@ public class BuildMechanic : MonoBehaviour
 
     [Header("UI")]
     public GameObject BuildMenu;
-    public GameObject CrossHairs;
+    Inventory inventory;
+
 
 
     void Start()
@@ -91,18 +81,8 @@ public class BuildMechanic : MonoBehaviour
         targetGhostPrefab = GhostFloorPrefab;
         targetHitboxPrefab = HitboxFloorPrefab;
 
-        metalCount = player.GetComponent<Inventory>();
-        scrapMetalCount = player.GetComponent<Inventory>();
-        rawMetalCount = player.GetComponent<Inventory>();
-        woodCount = player.GetComponent<Inventory>();
-        scrapWoodCount = player.GetComponent<Inventory>();
-        nailsCount = player.GetComponent<Inventory>();
-        paperCount = player.GetComponent<Inventory>();
-        plasticCount = player.GetComponent<Inventory>();
-        ropeCount = player.GetComponent<Inventory>();
-        clayCount = player.GetComponent<Inventory>();
-        brickCount = player.GetComponent<Inventory>();
-        clothCount = player.GetComponent<Inventory>();
+        inventory = player.GetComponent<Inventory>();
+
     }
 
     void Update()
@@ -111,9 +91,6 @@ public class BuildMechanic : MonoBehaviour
         Build();
 
         CheckInput();
-
-        Escape();
-        //canBuildGuiText.GetComponent<TextMeshProUGUI>().text = "(Wood: " + woodCount.woodCount + "/" + woodPrice + " )";
     }
 
     void Build()
@@ -302,7 +279,7 @@ public class BuildMechanic : MonoBehaviour
 
     private bool CanAffordResources()
     {
-        if (woodCount.woodCount >= woodPrice && nailsCount.nailsCount >= nailsPrice && metalCount.metalCount >= metalPrice)
+        if (inventory.woodCount >= woodPrice && inventory.nailsCount >= nailsPrice && inventory.metalCount >= metalPrice && inventory.ropeCount >= ropePrice && inventory.clothCount >= clothPrice)
         {
             return true;
         }
@@ -312,9 +289,11 @@ public class BuildMechanic : MonoBehaviour
 
     private void SpendResources()
     {
-        woodCount.woodCount -= woodPrice;
-        nailsCount.nailsCount -= nailsPrice;
-        metalCount.metalCount -= metalPrice;
+        inventory.woodCount -= woodPrice;
+        inventory.nailsCount -= nailsPrice;
+        inventory.metalCount -= metalPrice;
+        inventory.ropeCount -= ropePrice;
+        inventory.clothCount -= clothPrice;
     }
 
     /// <summary>
@@ -330,7 +309,6 @@ public class BuildMechanic : MonoBehaviour
     private void ToggleBuildMenu()
     {
         inBuildMenu = !inBuildMenu;
-        CrossHairs.SetActive(!inBuildMenu);
         BuildMenu.SetActive(inBuildMenu);
 
         Cursor.visible = inBuildMenu;
@@ -349,7 +327,6 @@ public class BuildMechanic : MonoBehaviour
     private void CloseBuildMenu()
     {
         inBuildMenu = false;
-        CrossHairs.SetActive(true);
         BuildMenu.SetActive(false);
 
         Cursor.visible = false;
@@ -383,55 +360,55 @@ public class BuildMechanic : MonoBehaviour
 
     public void SetTargetBuildFloor()
     {
-        SetTargetBuild(FloorPrefab, GhostFloorPrefab, HitboxFloorPrefab, 10, 10, 0);
+        SetTargetBuild(FloorPrefab, GhostFloorPrefab, HitboxFloorPrefab, 10, 10, 0, 0, 0);
         CloseBuildMenu();
     }
     public void SetTargetBuildLStairs()
     {
-        SetTargetBuild(LStairsPrefab, GhostLStairsPrefab, HitboxLStairsPrefab, 12, 12, 0);
+        SetTargetBuild(LStairsPrefab, GhostLStairsPrefab, HitboxLStairsPrefab, 12, 12, 0, 0, 0);
         CloseBuildMenu();
     }
     public void SetTargetBuildStairs()
     {
-        SetTargetBuild(StairsPrefab, GhostStairsPrefab, HitboxStairsPrefab, 12, 12, 0);
+        SetTargetBuild(StairsPrefab, GhostStairsPrefab, HitboxStairsPrefab, 12, 12, 0, 0, 0);
         CloseBuildMenu();
     }
 
     public void SetTargetBuildWall()
     {
-        SetTargetBuild(WallPrefab, GhostWallPrefab, HitboxWallPrefab, 8, 8, 0);
+        SetTargetBuild(WallPrefab, GhostWallPrefab, HitboxWallPrefab, 8, 8, 0, 0, 0);
         CloseBuildMenu();
     }
 
     public void SetTargetBuildFence()
     {
-        SetTargetBuild(FencePrefab, GhostFencePrefab, HitboxFencePrefab, 4, 4, 0);
+        SetTargetBuild(FencePrefab, GhostFencePrefab, HitboxFencePrefab, 4, 4, 0, 0, 0);
         CloseBuildMenu();
     }
 
     public void SetTargetBuildDoor()
     {
-        SetTargetBuild(WallDoorPrefab, GhostWallDoorPrefab, HitboxWallDoorPrefab, 4, 2, 0);
+        SetTargetBuild(WallDoorPrefab, GhostWallDoorPrefab, HitboxWallDoorPrefab, 4, 2, 0, 0, 0);
         CloseBuildMenu();
     }
 
     public void SetTargetBuildWindow()
     {
-        SetTargetBuild(WallWindowPrefab, GhostWallWindowPrefab, HitboxWallWindowPrefab, 6, 4, 0);
+        SetTargetBuild(WallWindowPrefab, GhostWallWindowPrefab, HitboxWallWindowPrefab, 6, 4, 0, 0, 0);
         CloseBuildMenu();
     }
     public void SetTargetBuildHalfWall()
     {
-        SetTargetBuild(HalfWallPrefab, GhostHalfWallPrefab, HitboxHalfWallPrefab, 4, 4, 0);
+        SetTargetBuild(HalfWallPrefab, GhostHalfWallPrefab, HitboxHalfWallPrefab, 4, 4, 0, 0, 0);
         CloseBuildMenu();
     }
     public void SetTargetBuildHalfDivitWall()
     {
-        SetTargetBuild(HalfWallDivitPrefab, GhostHalfWallDivitPrefab, HitboxHalfWallDivitPrefab, 2, 4, 0);
+        SetTargetBuild(HalfWallDivitPrefab, GhostHalfWallDivitPrefab, HitboxHalfWallDivitPrefab, 2, 4, 0, 0, 0);
         CloseBuildMenu();
     }
 
-    public void SetTargetBuild(GameObject cloneBuildPrefab, GameObject ghostClonePrefab, GameObject hitboxClonePrefab, int targetWoodPrice, int targetNailPrice, int targetMetalPrice)
+    public void SetTargetBuild(GameObject cloneBuildPrefab, GameObject ghostClonePrefab, GameObject hitboxClonePrefab, int targetWoodPrice, int targetNailPrice, int targetMetalPrice, int targetRopePrice, int targetClothPrice)
     {
         if (cloneBuildPrefab && ghostClonePrefab)
         {
@@ -441,6 +418,8 @@ public class BuildMechanic : MonoBehaviour
             woodPrice = targetWoodPrice;
             nailsPrice = targetNailPrice;
             metalPrice = targetMetalPrice;
+            ropePrice = targetRopePrice;
+            clothPrice = targetClothPrice;
         }
     }
 
@@ -470,21 +449,5 @@ public class BuildMechanic : MonoBehaviour
             Gizmos.color = new Color(1, 0, 1, 0.5f);
             Gizmos.DrawCube(boxcastPosition, rotatedSize);
         }
-    }
-
-    void Escape()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape) && inBuildMenu == true)
-        {
-            ForceEscape();
-        }
-    }
-
-    void ForceEscape()
-    {
-        ToggleBuildMenu();
-        BuildMenu.SetActive(false);
-        Cursor.lockState = CursorLockMode.Locked;
-        inBuildMenu = false;
     }
 }

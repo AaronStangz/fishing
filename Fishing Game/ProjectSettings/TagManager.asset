@@ -12,6 +12,8 @@ TagManager:
   - Buildable
   - Smelter
   - Moveable
+  - Built
+  - DryBrick
   layers:
   - Default
   - TransparentFX
@@ -25,7 +27,7 @@ TagManager:
   - CraftingBeach
   - SmelterLayer
   - Collectable
-  - 
+  - DryBrick
   - 
   - 
   - 
